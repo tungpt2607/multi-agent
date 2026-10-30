@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0004",
+  "request_id": "REQ-0001",
+  "stage": "planning",
+  "agent": "planner",
+  "summary": "Chia Gói A (DEC-0010: 1A pre_gate từng stage + 2A dòng trạng thái + 3A script rules_sync/S1 + 4A nháp drafts/REQ-0001, người dùng tự áp) thành task nhỏ có thứ tự, phụ thuộc, ước lượng. DEC-0011: AC-5 bỏ qua dòng mode; reporter hỏi tiến độ không cần pre_gate; guard thuộc pre_gate execution.",
+  "inputs": ["ART-0002", "ART-0003"],
+  "approved_by_decision": "DEC-0012",
+  "outputs": ["ART-0004"],
+  "status": "done"
+}

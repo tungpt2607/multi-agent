@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0007",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro việc P2 (ART-0004): executor viết bản nháp CLAUDE.md (mục Minh bạch agent bọc marker, sửa bước 3 Vòng điều phối theo pre_gate, ghi ngoại lệ G1/G2) + .patch, chỉ trong drafts/REQ-0001/multi-agent/.",
+  "inputs": ["ART-0003", "ART-0004"],
+  "approved_by_decision": "DEC-0018",
+  "outputs": ["ART-0007"],
+  "status": "done"
+}

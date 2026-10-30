@@ -1,0 +1,13 @@
+{
+  "id": "TASK-0016",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "Sửa L3 (ART-0015): drafts/REQ-0001/APPLY.md P7 thêm git add CLAUDE.md + git commit giữa git apply CLAUDE.md.patch và rules_sync apply; chỉnh các dòng commit/kỳ vọng sau đó cho khớp.",
+  "inputs": ["ART-0013", "ART-0015"],
+  "approved_by_decision": "DEC-0034",
+  "attempt": 3,
+  "max_attempts": 2,
+  "outputs": ["ART-0016"],
+  "status": "done"
+}

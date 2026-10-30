@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0010",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "P3 (ART-0004): viết drafts/REQ-0001/multi-agent/scripts/rules_manifest.json, rules_sync.py (check/apply), test_rules_sync.py. Điều kiện P3 trong ART-0009.",
+  "inputs": ["ART-0003", "ART-0004", "ART-0009"],
+  "approved_by_decision": "DEC-0023",
+  "outputs": ["ART-0010"],
+  "status": "done"
+}

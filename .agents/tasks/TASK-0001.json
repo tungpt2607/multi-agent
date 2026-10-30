@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0001",
+  "request_id": "REQ-0001",
+  "stage": "intake",
+  "agent": "intake",
+  "summary": "Chuẩn hoá REQ-0001: mọi repo kết nối phải theo luật multi-agent, tuần tự, báo agent phụ trách từng bước, chỉ chạy khi người dùng đồng ý. Liệt kê điểm chưa rõ.",
+  "inputs": [],
+  "approved_by_decision": "DEC-0003",
+  "outputs": ["ART-0001"],
+  "status": "done"
+}

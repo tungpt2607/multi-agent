@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0008",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "P2 (ART-0004): viết drafts/REQ-0001/multi-agent/CLAUDE.md (bản sao CLAUDE.md + mục Minh bạch agent bọc marker + siết bước 3 Vòng điều phối theo pre_gate + ngoại lệ G1/G2) và CLAUDE.md.patch. Điều kiện ART-0007.",
+  "inputs": ["ART-0003", "ART-0004", "ART-0007"],
+  "approved_by_decision": "DEC-0019",
+  "outputs": ["ART-0008"],
+  "status": "done"
+}
