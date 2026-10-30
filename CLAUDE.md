@@ -58,7 +58,8 @@ Trình tự:
 2. Chỉ khi người dùng chọn: ghi `approved_by_decision` vào Task và `state/active_task.json`.
 3. Chế độ `branch`: chuyển sang nhánh `git switch agent/<REQ-id>` (lần đầu: `git switch -c agent/<REQ-id>`), giải thích lệnh cho người dùng.
 4. Gọi `executor`. Hook `.claude/hooks/gate.py` chặn bằng code mọi chỗ ghi khác.
-5. Xong bước Kiểm tra: commit trên nhánh `agent/<REQ-id>`. Không push, không merge — người dùng tự làm.
+5. Xong bước Kiểm tra: commit trên nhánh `agent/<REQ-id>`. Mỗi lần `git push`, `git merge` và mỗi lần gọi công cụ ghi của `mcp__github__*` cần một phiếu `approve_action` riêng kèm `risk_report`; câu hỏi `AskUserQuestion` phải bắt đầu bằng mã phiếu và chứa vân tay khớp đúng lệnh sắp chạy (`{{PUSH <remote> <nhánh>}}`, `{{MERGE <nguồn> -> <nhánh hiện tại>}}` hoặc `{{MCP <tool> <owner>/<repo> ...}}` kèm định danh theo tool: số PR, nhánh, path, head->base; xem APPLY.md mục 6); chỉ khi người dùng tự bấm ô có nhãn bắt đầu bằng "Đồng ý" thì hook mới cho qua. Điều phối không tự đặt nhãn hay tự tạo câu trả lời thay người dùng; mỗi phiếu chỉ dùng một lần; merge vào `main` cần phiếu riêng.
+6. Sau mỗi phiếu `approve_stage`, Điều phối commit `.agents/` trên nhánh `agent/<REQ-id>` (không push).
 
 Chưa có deploy, gửi email, ghi database thật.
 
