@@ -1,10 +1,12 @@
-import json,subprocess,os,sys
+import json,subprocess,os,sys,re
 import tempfile,shutil
 src=os.path.dirname(os.path.abspath(__file__))
 while not os.path.exists(os.path.join(src,'.claude','hooks','gate.py')): src=os.path.dirname(src)
 root=tempfile.mkdtemp()
 shutil.copytree(src,root,dirs_exist_ok=True,ignore=shutil.ignore_patterns(".git"))
 os.chdir(root)
+# phần đầu thử chế độ nháp, bất kể dự án đang đặt chế độ nào
+open('.agents/workflow.yaml','w').write(re.sub(r'mode: \w+','mode: draft',open('.agents/workflow.yaml').read()))
 def run(tool,inp,agent=None):
     d={"tool_name":tool,"tool_input":inp,"cwd":root}
     if agent: d["agent_type"]=agent
@@ -57,7 +59,7 @@ cases+= [
  ("main cat .env",B("cat .env"),"DENY"),
 ]
 # --- chế độ nhánh ---
-wf=open(".agents/workflow.yaml").read().replace("mode: draft","mode: branch"); open(".agents/workflow.yaml","w").write(wf)
+wf=open(".agents/workflow.yaml").read().replace("mode: draft","mode: branch",1); open(".agents/workflow.yaml","w").write(wf)
 os.makedirs(".git",exist_ok=True); open(".git/HEAD","w").write("ref: refs/heads/main\n")
 cases.append(("nhánh: executor ghi src khi đang ở main",W("src/app.py","executor"),"DENY"))
 open(".git/HEAD","w").write("ref: refs/heads/agent/REQ-0001\n")
