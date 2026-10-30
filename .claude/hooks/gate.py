@@ -79,8 +79,28 @@ def user_answered(root, dec_id):
     return False
 
 
+def write_mode(root):
+    """draft: chỉ ghi drafts/<REQ>/ · branch: ghi code thật nhưng chỉ trên nhánh agent/<REQ>."""
+    try:
+        m = re.search(r"^\s*mode:\s*(draft|branch)\b", (root / ".agents" / "workflow.yaml").read_text(encoding="utf-8"), re.M)
+    except OSError:
+        m = None
+    return m.group(1) if m else "draft"
+
+
+def current_branch(root):
+    try:
+        head = (root / ".git" / "HEAD").read_text(encoding="utf-8").strip()
+    except OSError:
+        return None
+    return head[len("ref: refs/heads/"):] if head.startswith("ref: refs/heads/") else None
+
+
+EXECUTOR_PROTECTED = (".agents/", ".claude/", ".github/", ".git/")
+
+
 def executor_approved(root, rel):
-    """Thực thi chỉ được ghi trong drafts/<REQ>/ khi task đang chạy mang mã quyết định đã duyệt."""
+    """Thực thi chỉ được ghi khi task đang chạy mang mã quyết định người dùng đã duyệt, đúng chỗ cho phép."""
     active = load(root / ".agents" / "state" / "active_task.json")
     if not active or active.get("agent") != "executor":
         return "chưa có task Thực thi đang chạy (state/active_task.json)"
@@ -96,8 +116,16 @@ def executor_approved(root, rel):
     if not user_answered(root, dec_id):
         return f"không thấy câu trả lời gốc của người dùng cho {dec_id} trong .agents/ledger/"
     req = active.get("request_id", "")
-    if not re.fullmatch(r"REQ-\d{4}", req) or not rel.startswith(f"drafts/{req}/"):
-        return f"chỉ được ghi trong drafts/{req}/"
+    if not re.fullmatch(r"REQ-\d{4}", req):
+        return "request_id của task không hợp lệ"
+    if write_mode(root) == "branch":
+        if current_branch(root) != f"agent/{req}":
+            return f"chỉ được ghi code khi đang ở nhánh agent/{req} (Điều phối tạo nhánh sau khi bạn duyệt)"
+        if rel.startswith(EXECUTOR_PROTECTED) or rel == "CLAUDE.md":
+            return "Thực thi không được ghi vào .agents/, .claude/, .github/, CLAUDE.md"
+        return None
+    if not rel.startswith(f"drafts/{req}/"):
+        return f"chế độ nháp: chỉ được ghi trong drafts/{req}/"
     return None
 
 
@@ -125,14 +153,12 @@ def check_write(ctx, rel):
         allow(ctx)
     if rel.startswith(".agents/artifacts/"):
         allow(ctx)
-    if rel.startswith("drafts/"):
-        if agent != "executor":
-            deny("chỉ Thực thi được ghi bản nháp", ctx)
+    if agent == "executor":
         why = executor_approved(root, rel)
         if why:
             deny(why, ctx)
         allow(ctx)
-    deny("giai đoạn nháp: chỉ được ghi trong .agents/ và drafts/", ctx)
+    deny("chỉ agent Thực thi được ghi code/bản nháp, và chỉ sau khi bạn duyệt", ctx)
 
 
 def main():

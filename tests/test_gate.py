@@ -55,6 +55,20 @@ cases+= [
  ("main ls",B("ls -la"),"pass"),
  ("main cat .env",B("cat .env"),"DENY"),
 ]
+# --- chế độ nhánh ---
+wf=open(".agents/workflow.yaml").read().replace("mode: draft","mode: branch"); open(".agents/workflow.yaml","w").write(wf)
+os.makedirs(".git",exist_ok=True); open(".git/HEAD","w").write("ref: refs/heads/main\n")
+cases.append(("nhánh: executor ghi src khi đang ở main",W("src/app.py","executor"),"DENY"))
+open(".git/HEAD","w").write("ref: refs/heads/agent/REQ-0001\n")
+cases+= [
+ ("nhánh: executor ghi src đúng nhánh",W("src/app.py","executor"),"pass"),
+ ("nhánh: executor ghi .github",W(".github/workflows/ci.yml","executor"),"DENY"),
+ ("nhánh: executor ghi .agents/state",W(".agents/state/active_task.json","executor"),"DENY"),
+ ("nhánh: analyst ghi src",W("src/app.py","analyst"),"DENY"),
+ ("nhánh: main ghi src",W("src/app.py"),"DENY"),
+]
+open(".git/HEAD","w").write("ref: refs/heads/agent/REQ-0002\n")
+cases.append(("nhánh: executor sai nhánh",W("src/app.py","executor"),"DENY"))
 bad=[c for c in cases if c[1]!=c[2]]
 for c in cases: print(("OK " if c[1]==c[2] else "FAIL"),c[0],c[1])
 print(len(cases)-len(bad),"/",len(cases)); sys.exit(1 if bad else 0)

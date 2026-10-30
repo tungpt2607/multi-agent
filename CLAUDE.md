@@ -33,11 +33,19 @@ Trước mỗi lệnh shell, nói cho người dùng bằng tiếng Việt: lệ
 5. Người dùng trả lời → ghi `answer` (`action`: choose | choose_modified | reject | ask_more), đặt `status` tương ứng, `answered_at`; xoá khỏi `waiting_on`; áp dụng: sang bước, làm lại, hoặc huỷ.
 6. Gom các câu hỏi cùng lúc vào một lần `AskUserQuestion` (tối đa 4), không bỏ bớt câu hỏi.
 
-## Bước Thực thi (chế độ nháp)
-- Trước mỗi hành động: gọi `guard` → Artifact `risk_report`. Mở phiếu `approve_action` kèm `risk_report`.
-- Chỉ khi người dùng chọn: ghi `approved_by_decision` vào Task và `state/active_task.json`, rồi gọi `executor`.
-- Thực thi chỉ được ghi trong `drafts/<REQ-id>/`. Hook `.claude/hooks/gate.py` chặn bằng code mọi thứ khác.
-- Chưa có merge, deploy, gửi email, ghi database thật.
+## Bước Thực thi
+Chế độ ghi đặt ở `mode:` của bước execution trong `.agents/workflow.yaml`:
+- `draft`: Thực thi chỉ được ghi trong `drafts/<REQ-id>/`.
+- `branch`: Thực thi ghi code thật, nhưng chỉ khi repo đang ở nhánh `agent/<REQ-id>`; không được ghi `.agents/`, `.claude/`, `.github/`, `CLAUDE.md`.
+
+Trình tự:
+1. Trước mỗi hành động: gọi `guard` → Artifact `risk_report`. Mở phiếu `approve_action` kèm `risk_report`.
+2. Chỉ khi người dùng chọn: ghi `approved_by_decision` vào Task và `state/active_task.json`.
+3. Chế độ `branch`: chuyển sang nhánh `git switch agent/<REQ-id>` (lần đầu: `git switch -c agent/<REQ-id>`), giải thích lệnh cho người dùng.
+4. Gọi `executor`. Hook `.claude/hooks/gate.py` chặn bằng code mọi chỗ ghi khác.
+5. Xong bước Kiểm tra: commit trên nhánh `agent/<REQ-id>`. Không push, không merge — người dùng tự làm.
+
+Chưa có deploy, gửi email, ghi database thật.
 
 ## Kiểm tra không đạt
 Không tự làm lại. Mở phiếu hỏi người dùng. `attempt` ≥ `max_attempts` → bắt buộc hỏi.

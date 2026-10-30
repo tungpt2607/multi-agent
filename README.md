@@ -2,6 +2,11 @@
 
 Bộ 9 agent chạy trên Claude Code: phiên chính là **Điều phối**, 8 subagent chuyên trách. Bạn là người quyết định duy nhất; mọi lựa chọn hiện thành ô bấm.
 
+## Gắn vào dự án có sẵn
+1. Chép `CLAUDE.md`, `.claude/`, `.agents/`, `tests/` vào gốc dự án. Dự án đã có `CLAUDE.md` hoặc `.claude/settings.json` thì gộp, không ghi đè.
+2. Trong `.agents/workflow.yaml`, bước execution đặt `mode: branch` để Thực thi sửa code thật trên nhánh `agent/REQ-xxxx` (không bao giờ trên `main`).
+3. Chạy `python3 tests/test_gate.py` để kiểm tra hook.
+
 ## Bắt đầu
 1. Cài Claude Code, mở thư mục này (`claude` trong terminal, hoặc mở repo trên app Claude).
 2. Gõ yêu cầu, ví dụ: `Yêu cầu mới: thêm đăng nhập Google`.
@@ -17,7 +22,7 @@ Bộ 9 agent chạy trên Claude Code: phiên chính là **Điều phối**, 8 s
 | `.agents/workflow.yaml` | Quy trình 7 bước, hạng mô hình, ngân sách token |
 | `.agents/schemas/` | 4 JSON Schema: Request, Task, DecisionRequest, Artifact |
 | `.agents/knowledge/` | Quy tắc nghiệp vụ, chuẩn code — chỉ bạn ghi |
-| `drafts/<REQ>/` | Nơi duy nhất agent Thực thi được ghi (chế độ nháp) |
+| `drafts/<REQ>/` | Nơi agent Thực thi ghi ở chế độ nháp (chế độ nhánh: code thật trên nhánh agent/REQ-xxxx) |
 
 ## Hook chặn những gì
 - Agent sửa luật, hook, schema, quy trình, kho tri thức, sổ câu trả lời.
@@ -33,4 +38,4 @@ Mọi lần gọi công cụ ghi/shell được log ở `.agents/state/tool_log.
 - Chưa có công cụ tác động thật (merge, deploy, email, CRM) — giai đoạn 3.
 
 ## Kiểm tra hook
-`python3 tests/test_gate.py` — 28 tình huống chặn/cho phép.
+`python3 tests/test_gate.py` — 35 tình huống chặn/cho phép.
