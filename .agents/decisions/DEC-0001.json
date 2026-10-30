@@ -1,0 +1,18 @@
+{
+  "id": "DEC-0001",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "choose_option",
+  "question": "[DEC-0001] Áp dụng quy tắc 'báo agent nào làm / đang làm' theo cách nào?",
+  "context": "Thêm vào CLAUDE.md mục 'Minh bạch agent': mỗi khi nhận yêu cầu, báo bước hiện tại và agent sẽ làm; khi gọi subagent, báo 'Đang giao <agent> (TASK-xxxx)'; khi xong, báo agent nào đã nộp ART nào; mỗi câu trả lời mở đầu bằng dòng trạng thái. Hook chặn agent sửa CLAUDE.md nên người dùng phải tự dán.",
+  "options": [
+    {"id": "A", "title": "Mình viết sẵn đoạn văn bản vào drafts/REQ-0001/, bạn tự dán vào CLAUDE.md của cả 2 repo", "pros": ["Giữ đúng luật: chỉ người dùng sửa CLAUDE.md", "Nhanh, ít token"], "cons": ["Bạn phải tự sao chép"], "reversible": true},
+    {"id": "B", "title": "Chạy đủ luồng: analyst, designer, planner, executor", "pros": ["Đầy đủ truy vết, có tiêu chí nghiệm thu"], "cons": ["Tốn nhiều token", "Executor vẫn không được sửa CLAUDE.md"], "reversible": true},
+    {"id": "C", "title": "Chỉ áp dụng trong phiên này, không sửa file", "pros": ["Không tốn công"], "cons": ["Phiên khác (game-hub) không có"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đây là thay đổi luật nhỏ, CLAUDE.md chỉ người dùng được sửa; viết sẵn đoạn văn là cách nhanh và đúng luật."},
+  "risk": "low",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose_modified", "choice": "A", "note": "Người dùng yêu cầu Điều phối dán hộ đoạn quy tắc vào CLAUDE.md thay vì tự dán.", "answered_at": "2026-10-30T17:52:00Z"}
+}

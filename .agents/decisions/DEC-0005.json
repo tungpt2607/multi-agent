@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0005",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "approve_stage",
+  "question": "[DEC-0005] Duyệt kết quả bước Tiếp nhận (ART-0001, đặc tả REQ-0001)?",
+  "context": "ART-0001 do intake nộp: phạm vi, ngoài phạm vi, 4 tiêu chí nghiệm thu đề xuất.",
+  "options": [
+    {"id": "A", "title": "Duyệt", "pros": ["Sang bước Phân tích"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Làm lại / sửa", "pros": ["Đặc tả đúng ý hơn"], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đặc tả khớp DEC-0004, không còn điểm mở về phạm vi."},
+  "risk": "low",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:12:00Z"}
+}

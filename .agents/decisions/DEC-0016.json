@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0016",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0005",
+  "kind": "approve_action",
+  "question": "[DEC-0016] Cho executor làm P1: viết bản nháp workflow.yaml + .patch trong drafts/REQ-0001/?",
+  "context": "risk_report ART-0005: LOW, hoàn tác được. Điều kiện: chỉ 2 file trong drafts/REQ-0001/, chỉ thêm 7 dòng pre_gate, giữ mode: draft, thống nhất đường dẫn.",
+  "options": [
+    {"id": "A", "title": "Cho phép, dùng đường dẫn theo kế hoạch drafts/REQ-0001/multi-agent/.agents/", "pros": ["Khớp ART-0004, tách rõ multi-agent/game-hub cho P4"], "cons": ["Đường dẫn dài"], "reversible": true},
+    {"id": "B", "title": "Cho phép, dùng đường dẫn ngắn drafts/REQ-0001/workflow.yaml", "pros": ["Gọn"], "cons": ["Lệch ART-0004, dễ nhầm với bản game-hub"], "reversible": true},
+    {"id": "C", "title": "Không cho phép", "pros": [], "cons": ["Dừng REQ-0001"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Khớp kế hoạch, P4 sẽ có thư mục game-hub song song."},
+  "risk": "low", "risk_report": "ART-0005", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:48:00Z"}
+}

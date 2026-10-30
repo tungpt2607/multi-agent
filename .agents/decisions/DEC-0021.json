@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0021",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0008",
+  "kind": "approve_stage",
+  "question": "[DEC-0021] Duyệt kết quả P2 (ART-0008: bản nháp CLAUDE.md + .patch)?",
+  "context": "ART-0008 do executor nộp. git apply --check để reviewer kiểm ở P5.",
+  "options": [
+    {"id": "A", "title": "Duyệt", "pros": ["Sang P3"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Làm lại / sửa", "pros": [], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đúng điều kiện ART-0007."},
+  "risk": "low", "risk_report": "ART-0007", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:10:00Z"}
+}

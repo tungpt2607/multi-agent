@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0003",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "approve_stage",
+  "question": "[DEC-0003] Bắt đầu bước 1 — Tiếp nhận, agent intake làm?",
+  "context": "intake chuẩn hoá REQ-0001, phân loại, liệt kê điểm chưa rõ (vd: 'mọi repo' gồm những repo nào, cách đồng bộ luật, có vá lỗ hổng gate không). Chỉ đọc + ghi ART. Ước lượng ~15k token. Các bước sau: analyst → designer → planner → guard+executor → reviewer → reporter, mỗi bước sẽ xin phép riêng.",
+  "options": [
+    {"id": "A", "title": "Đồng ý, chạy intake", "pros": ["Đúng trình tự"], "cons": ["~15k token"], "reversible": true},
+    {"id": "B", "title": "Chưa, tôi bổ sung yêu cầu trước", "pros": ["Đầu vào rõ hơn"], "cons": ["Chậm hơn"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Yêu cầu đã đủ để intake chuẩn hoá và tự liệt kê điểm chưa rõ."},
+  "risk": "low",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T17:58:00Z"}
+}

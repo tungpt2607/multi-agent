@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0014",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0004",
+  "kind": "clarify",
+  "question": "[DEC-0014] Ngân sách token REQ-0001: đã dùng ~142k/200k (71%), phần còn lại cần ~60k. Xử lý thế nào?",
+  "context": "Theo CLAUDE.md: 80% báo, 100% dừng và hỏi.",
+  "options": [
+    {"id": "A", "title": "Nâng ngân sách lên 260k", "pros": ["Chạy hết kế hoạch"], "cons": ["Tốn thêm token"], "reversible": true},
+    {"id": "B", "title": "Giữ 200k, dừng khi chạm 100%", "pros": ["Kiểm soát chi phí"], "cons": ["Có thể dừng giữa P3/P4"], "reversible": true},
+    {"id": "C", "title": "Dừng tại đây, làm tiếp phiên sau", "pros": ["Không tốn thêm"], "cons": ["Bản ghi chưa commit có thể mất"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Phần còn lại đã được lập kế hoạch rõ, dừng giữa chừng tốn hơn."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:40:00Z"}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0017",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0006",
+  "kind": "approve_stage",
+  "question": "[DEC-0017] Duyệt kết quả P1 (ART-0006: bản nháp workflow.yaml + .patch, 7 dòng thêm)?",
+  "context": "ART-0006 do executor nộp. git apply --check để reviewer kiểm ở P5.",
+  "options": [
+    {"id": "A", "title": "Duyệt", "pros": ["Sang P2"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Làm lại / sửa", "pros": [], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đúng điều kiện ART-0005."},
+  "risk": "low", "risk_report": "ART-0005", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:55:00Z"}
+}

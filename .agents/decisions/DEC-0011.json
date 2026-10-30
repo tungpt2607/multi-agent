@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0011",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0003",
+  "kind": "clarify",
+  "question": "[DEC-0011] Xác nhận 3 điểm làm rõ của designer?",
+  "context": "(1) AC-5: so workflow.yaml 2 repo sau khi bỏ qua dòng mode (multi-agent draft, game-hub branch). (2) G1: reporter khi hỏi tiến độ không cần xin phép trước. (3) G2: guard chạy trong phạm vi phiếu xin phép của bước execution.",
+  "options": [
+    {"id": "A", "title": "Đồng ý cả 3", "pros": ["Hợp lý, ít phiếu thừa"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Không, tôi ghi chú", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "mode khác nhau là cố ý; hỏi tiến độ chỉ đọc; guard là một phần của bước execution."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:30:00Z"}
+}

@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0020",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0007",
+  "kind": "clarify",
+  "question": "[DEC-0020] Ngân sách đã vượt 80% (~212k/260k); phần còn lại cần ~150k. Xử lý thế nào?",
+  "context": "Thực tế mỗi lần gọi subagent ~20k token. Còn: executor P2, guard+executor P3, guard+executor P4, reviewer P5, reviewer P8, reporter.",
+  "options": [
+    {"id": "A", "title": "Nâng lên 400k và gom guard P3+P4 làm một lần (vẫn 2 phiếu approve_action riêng)", "pros": ["Tiết kiệm ~20k", "Chạy hết"], "cons": ["Tốn thêm token"], "reversible": true},
+    {"id": "B", "title": "Nâng lên 420k, giữ tách từng bước", "pros": ["Đúng nhịp hiện tại"], "cons": ["Tốn nhất"], "reversible": true},
+    {"id": "C", "title": "Dừng sau P2, làm tiếp phiên sau", "pros": ["Không tốn thêm"], "cons": ["Bản ghi chưa commit có thể mất"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Giữ đủ kiểm soát (phiếu riêng từng hành động) mà bớt một lần gọi guard."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:02:00Z"}
+}

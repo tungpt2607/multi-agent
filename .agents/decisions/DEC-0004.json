@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0004",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "clarify",
+  "question": "[DEC-0004] Chốt 4 điểm chưa rõ của REQ-0001 (phạm vi repo, đồng bộ luật, xin phép trước mỗi bước, lỗ hổng gate).",
+  "context": "Do intake đề xuất. 1) Phạm vi 'mọi repo': A chỉ repo khai báo trong knowledge/ / B mọi repo kết nối tự động / C chép khi người dùng yêu cầu. 2) Đồng bộ luật: A multi-agent là nguồn duy nhất, chép qua PR, kiểm tra lệch bản / B submodule-subtree / C chép tay. 3) Xin phép trước bước: A thêm gate trước mỗi bước vào workflow.yaml / B chỉ ghi trong CLAUDE.md / C hook chặn giao Task khi chưa duyệt. 4) Lỗ hổng gate: A REQ riêng / B làm sau / C gộp vào REQ-0001.",
+  "options": [
+    {"id": "A", "title": "1A, 2A, 3A, 4A (khuyến nghị)", "pros": ["Khớp yêu cầu"], "cons": ["Còn duyệt lại ở đặc tả"], "reversible": true},
+    {"id": "B", "title": "Chọn từng mục", "pros": ["Kiểm soát chi tiết"], "cons": ["Thêm vòng hỏi"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Bám đúng yêu cầu tuần tự, báo agent, đồng ý mới làm."},
+  "risk": "low",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose_modified", "choice": "1B,2A,3A,4A", "note": "1: mọi repo kết nối tự động áp dụng; 2: chép qua PR; 3: gate trước mỗi bước trong workflow.yaml; 4: mở REQ riêng (REQ-0002).", "answered_at": "2026-10-30T18:05:00Z"}
+}
