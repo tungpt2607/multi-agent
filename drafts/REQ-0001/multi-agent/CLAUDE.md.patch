@@ -11,7 +11,7 @@
     - **Artifact** → luôn mở phiếu `approve_stage` trước khi sang bước tiếp.
  5. Người dùng trả lời → ghi `answer` (`action`: choose | choose_modified | reject | ask_more), đặt `status` tương ứng, `answered_at`; xoá khỏi `waiting_on`; áp dụng: sang bước, làm lại, hoặc huỷ.
  6. Gom các câu hỏi cùng lúc vào một lần `AskUserQuestion` (tối đa 4), không bỏ bớt câu hỏi.
- 
+
 +<!-- rules-sync:begin minh-bach-agent -->
 +## Minh bạch agent
 +- Xin phép trước bước: trước khi giao subagent của bước nào, mở phiếu `approve_stage` (`pre_gate`) cho bước đó; áp dụng cả bước `intake`. Phiếu chưa trả lời, `reject` hoặc `ask_more` = không tạo TASK, không gọi subagent.
