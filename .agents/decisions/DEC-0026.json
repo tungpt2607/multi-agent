@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0026",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0011",
+  "kind": "approve_stage",
+  "question": "[DEC-0026] Bắt đầu bước 6/7 — Kiểm tra (P5), agent reviewer kiểm các bản nháp?",
+  "context": "reviewer đối chiếu AC-1..AC-4, AC-7: git apply --check 2 patch, chạy unittest rules_sync, chạy check trên bản sao game-hub (chỉ đọc), grep lệnh cấm trong APPLY.md. ~30k token.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy reviewer", "pros": ["Đúng trình tự"], "cons": ["~30k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Phải kiểm trước khi bạn áp dụng thật."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:30:00Z"}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0022",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0008",
+  "kind": "approve_stage",
+  "question": "[DEC-0022] Chạy guard một lần đánh giá cả P3 (script rules_sync + manifest + test) và P4 (bản nháp game-hub + APPLY.md)?",
+  "context": "Theo DEC-0020: gom guard P3+P4; sau đó vẫn 2 phiếu approve_action riêng. ~20k token.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy guard P3+P4", "pros": ["Tiết kiệm token"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Theo DEC-0020."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:10:00Z"}
+}

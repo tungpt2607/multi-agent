@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0031",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0013",
+  "kind": "approve_action",
+  "question": "[DEC-0031] Cho executor sửa lỗi theo ART-0012 (lần thử 2): CLAUDE.md nháp 2 repo, CLAUDE.md.patch, APPLY.md, rules_sync.py + test?",
+  "context": "risk_report ART-0013: LOW. Điều kiện C1-C5; C4 đã được chấp nhận ở DEC-0029.",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Sửa lỗi chặn L1"], "cons": ["~35k token"], "reversible": true},
+    {"id": "B", "title": "Không cho phép", "pros": [], "cons": ["REQ-0001 không đạt"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Rủi ro thấp, đúng hướng đã chọn."},
+  "risk": "low", "risk_report": "ART-0013", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:52:00Z"}
+}

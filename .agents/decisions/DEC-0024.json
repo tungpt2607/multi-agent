@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0024",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0009",
+  "kind": "approve_action",
+  "question": "[DEC-0024] Cho executor làm P4 (sau P3): bản nháp game-hub (workflow.yaml mode: branch, CLAUDE.md khối marker) + drafts/REQ-0001/APPLY.md?",
+  "context": "risk_report ART-0009: low. Điều kiện: không lệnh phá huỷ/merge/--no-verify/secret, push chỉ nhánh riêng, mỗi lệnh ghi rõ repo, check trước commit.",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Theo kế hoạch"], "cons": ["~20k token"], "reversible": true},
+    {"id": "B", "title": "Không cho phép", "pros": [], "cons": ["Không có hướng dẫn áp dụng"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Rủi ro thấp, hoàn tác được."},
+  "risk": "low", "risk_report": "ART-0009", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:18:00Z"}
+}

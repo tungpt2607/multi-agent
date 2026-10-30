@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0042",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "kind": "approve_action",
+  "question": "[DEC-0042] Push qua GitHub MCP phải gửi lại nội dung file (~268 KB, ~200k token). Push phần nào?",
+  "context": "drafts 52KB, decisions+tasks+requests 53KB, artifacts 94KB, ledger 70KB. Ngân sách REQ-0001 đã ~100%. Commit trên GitHub là commit mới, khác 8d45dee/e7923ae.",
+  "options": [
+    {"id": "B", "title": "drafts + requests/tasks/decisions (~105 KB, ~80k token)", "pros": ["Đủ để áp dụng P6/P7 và truy vết quyết định"], "cons": ["Thiếu artifacts và ledger"], "reversible": true},
+    {"id": "C", "title": "Chỉ drafts/REQ-0001 (~52 KB, ~40k token)", "pros": ["Rẻ nhất, đủ để áp dụng"], "cons": ["Mất truy vết"], "reversible": true},
+    {"id": "A", "title": "Tất cả (~268 KB, ~200k token)", "pros": ["Đầy đủ"], "cons": ["Rất tốn"], "reversible": true},
+    {"id": "D", "title": "Không push", "pros": ["Không tốn"], "cons": ["Mất hết khi container bị thu hồi"], "reversible": true}
+  ],
+  "recommendation": {"option": "B", "reason": "Cân bằng chi phí và truy vết."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "B", "note": "", "answered_at": "2026-10-30T21:06:00Z"}
+}

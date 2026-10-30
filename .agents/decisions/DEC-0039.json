@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0039",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "kind": "approve_stage",
+  "question": "[DEC-0039] Duyệt biên bản bàn giao ART-0019 và kết thúc phiên ở trạng thái 'chờ người dùng áp dụng P6/P7, rồi P8'? Ngân sách đã ~100%.",
+  "context": "Commit 8d45dee trên agent/REQ-0001 chưa có ART-0019/TASK-0019/DEC-0039.",
+  "options": [
+    {"id": "A", "title": "Duyệt, commit thêm phần bàn giao lên agent/REQ-0001 rồi dừng", "pros": ["Đủ truy vết"], "cons": ["~5k token vượt ngân sách"], "reversible": true},
+    {"id": "B", "title": "Duyệt, dừng ngay, không commit thêm", "pros": ["Không tốn thêm"], "cons": ["ART-0019 có thể mất"], "reversible": true},
+    {"id": "C", "title": "Không duyệt", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Một commit nhỏ giữ được biên bản bàn giao."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:50:00Z"}
+}

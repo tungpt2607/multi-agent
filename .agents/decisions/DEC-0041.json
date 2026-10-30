@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0041",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0019",
+  "kind": "clarify",
+  "question": "[DEC-0041] Yêu cầu đổi luật 'có phiếu người dùng đồng ý thì agent được làm (kể cả push)' và việc push agent/REQ-0001 ngay bây giờ.",
+  "context": "Đổi luật chạm CLAUDE.md + gate.py (hook chặn agent sửa) → agent soạn nháp, người dùng áp một lần. gate.py trùng phạm vi REQ-0002.",
+  "options": [
+    {"id": "A", "title": "Gộp vào REQ-0002 (vá gate) và chạy đủ luồng", "pros": ["Một lần sửa gate.py"], "cons": ["Cần ngân sách mới"], "reversible": true},
+    {"id": "B", "title": "Mở REQ-0003 riêng", "pros": ["Tách bạch"], "cons": ["Hai REQ cùng sửa gate.py, dễ xung đột"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Cùng file gate.py."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose_modified", "choice": "A", "note": "(1) Gộp đổi luật vào REQ-0002. (2) Ngoại lệ 1 lần: Điều phối push agent/REQ-0001 qua GitHub MCP.", "answered_at": "2026-10-30T21:02:00Z"}
+}

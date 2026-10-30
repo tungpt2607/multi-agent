@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0033",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0014",
+  "kind": "clarify",
+  "question": "[DEC-0033] Ngân sách ~515k/560k (92%); kiểm lại + bàn giao cần ~60k. Xử lý thế nào?",
+  "context": "Theo CLAUDE.md: 100% dừng và hỏi.",
+  "options": [
+    {"id": "A", "title": "Nâng lên 640k", "pros": ["Xong REQ trong phiên"], "cons": ["Tốn thêm"], "reversible": true},
+    {"id": "B", "title": "Nâng lên 600k, bỏ reporter (Điều phối tóm tắt ngắn)", "pros": ["Tiết kiệm ~20k"], "cons": ["Không có biên bản bàn giao chuẩn"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Còn ít việc, nên đóng trọn."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:02:00Z"}
+}

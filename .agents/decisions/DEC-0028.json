@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0028",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0012",
+  "kind": "choose_option",
+  "question": "[DEC-0028] Sửa lỗi chặn L1 (game-hub chưa có marker, bước 3 + G1/G2 nằm ngoài marker) theo hướng nào?",
+  "context": "ART-0012 KHÔNG ĐẠT. (a) P7 thêm git apply CLAUDE.md.patch trước apply (đã --check exit 0 trên game-hub). (b) apply tự khởi tạo marker (đổi điều kiện ART-0009). (c) đưa bước 3 + G1/G2 vào trong khối marker.",
+  "options": [
+    {"id": "AC", "title": "(a) + (c)", "pros": ["Lần đầu chạy được", "Lần sau đồng bộ đủ luật"], "cons": ["Sửa CLAUDE.md nháp + patch + APPLY.md"], "reversible": true},
+    {"id": "A", "title": "Chỉ (a)", "pros": ["Sửa ít nhất"], "cons": ["Bước 3/G1/G2 không đồng bộ được về sau"], "reversible": true},
+    {"id": "B", "title": "(b)", "pros": ["Tự động"], "cons": ["Nới điều kiện an toàn, cần guard lại"], "reversible": true}
+  ],
+  "recommendation": {"option": "AC", "reason": "(a) cần cho lần đầu; (c) giúp AC-5 đúng nghĩa về lâu dài."},
+  "risk": "low", "risk_report": "ART-0009", "status": "answered",
+  "answer": {"action": "choose", "choice": "AC", "note": "", "answered_at": "2026-10-30T19:45:00Z"}
+}
