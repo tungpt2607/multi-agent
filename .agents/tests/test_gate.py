@@ -6,7 +6,8 @@ root=tempfile.mkdtemp()
 shutil.copytree(src,root,dirs_exist_ok=True,ignore=shutil.ignore_patterns(".git"))
 os.chdir(root)
 # phần đầu thử chế độ nháp, bất kể dự án đang đặt chế độ nào
-open('.agents/workflow.yaml','w').write(re.sub(r'mode: \w+','mode: draft',open('.agents/workflow.yaml').read()))
+_wf=open('.agents/workflow.yaml').read()
+open('.agents/workflow.yaml','w').write(re.sub(r'mode: \w+','mode: draft',_wf))
 def run(tool,inp,agent=None):
     d={"tool_name":tool,"tool_input":inp,"cwd":root}
     if agent: d["agent_type"]=agent
