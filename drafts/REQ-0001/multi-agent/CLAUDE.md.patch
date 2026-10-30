@@ -1,0 +1,32 @@
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -26,13 +26,28 @@
+ ## Vòng điều phối
+ 1. Người dùng đưa yêu cầu → tạo `REQ`, `status: intake`, `token_budget` theo `workflow.yaml`.
+ 2. Với bước hiện tại: nếu `waiting_on` còn phiếu mở → dừng, nhắc người dùng.
+-3. Tạo `TASK` (chỉ ghi `summary` + ID các Artifact đầu vào, không chép nội dung), ghi `state/active_task.json`, gọi subagent của bước đó.
++3. Xin phép trước mỗi bước: làm đúng mục "Xin phép trước mỗi bước" trong khối "Minh bạch agent" (bên dưới); chưa có phiếu `approve_stage` được chọn thì không tạo `TASK`, không giao subagent.
+ 4. Subagent trả về:
+    - **DecisionRequest** → lưu `DEC`, thêm vào `waiting_on`, hỏi người dùng bằng `AskUserQuestion`.
+    - **Artifact** → luôn mở phiếu `approve_stage` trước khi sang bước tiếp.
+ 5. Người dùng trả lời → ghi `answer` (`action`: choose | choose_modified | reject | ask_more), đặt `status` tương ứng, `answered_at`; xoá khỏi `waiting_on`; áp dụng: sang bước, làm lại, hoặc huỷ.
+ 6. Gom các câu hỏi cùng lúc vào một lần `AskUserQuestion` (tối đa 4), không bỏ bớt câu hỏi.
+ 
++<!-- rules-sync:begin minh-bach-agent -->
++## Minh bạch agent
++- Xin phép trước bước: trước khi giao subagent của bước nào, mở phiếu `approve_stage` (`pre_gate`) cho bước đó; áp dụng cả bước `intake`. Phiếu chưa trả lời, `reject` hoặc `ask_more` = không tạo TASK, không gọi subagent.
++- Dòng trạng thái cố định (đúng một dòng): `📍 REQ-xxxx · Bước: <bước> · Agent: <agent> · Task: <TASK hoặc "chưa tạo"> · Artifact đã nộp: <ART hoặc "chưa có">`
++- Báo ở ba thời điểm: khi xin phép (dòng trạng thái + nêu agent sẽ làm); khi giao: `▶ Giao <agent> — TASK-xxxx`; khi nhận kết quả: `✔ <agent> đã nộp ART-xxxx` hoặc `❓ <agent> cần bạn quyết DEC-xxxx`.
++- Mỗi phiếu `AskUserQuestion` ghi rõ agent đề xuất.
++- Không gọi subagent nào mà người dùng chưa được báo bằng dòng trạng thái trên.
++
++### Xin phép trước mỗi bước
++Trước mỗi bước (theo `pre_gate` trong `workflow.yaml`; luôn hỏi trước cả bước `intake`): mở phiếu xin phép `approve_stage` nêu bước + agent + ước lượng token. Chỉ khi phiếu đó đã `answered` với `choose` hoặc `choose_modified` mới tạo `TASK` (chỉ ghi `summary` + ID các Artifact đầu vào, không chép nội dung; ghi `approved_by_decision`), ghi `state/active_task.json`, gọi subagent của bước đó. Phiếu chưa trả lời, `reject` hoặc `ask_more` = không tạo TASK, không giao subagent. Phiếu duyệt bước N (mục 4) và phiếu xin chạy bước N+1 được hỏi chung trong một lần `AskUserQuestion`.
++- Ngoại lệ G1: `reporter` khi người dùng hỏi tiến độ không cần `pre_gate` (chỉ đọc, không ghi file, không thuộc bước delivery).
++- Ngoại lệ G2: `guard` nằm dưới `pre_gate` của bước execution; mỗi hành động vẫn cần phiếu `approve_action` riêng (xem "Bước Thực thi"), `pre_gate` không thay thế phiếu này.
++- Đây là quy tắc cho Điều phối; chưa có hook cưỡng chế riêng cho `pre_gate`.
++<!-- rules-sync:end minh-bach-agent -->
++
+ ## Bước Thực thi
+ Chế độ ghi đặt ở `mode:` của bước execution trong `.agents/workflow.yaml`:
+ - `draft`: Thực thi chỉ được ghi trong `drafts/<REQ-id>/`.
