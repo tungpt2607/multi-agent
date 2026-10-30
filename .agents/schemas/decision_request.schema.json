@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DecisionRequest",
+  "type": "object",
+  "required": [
+    "id",
+    "request_id",
+    "task_id",
+    "kind",
+    "question",
+    "context",
+    "options",
+    "recommendation",
+    "risk",
+    "status",
+    "answer"
+  ],
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^DEC-\\d{4}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^REQ-\\d{4}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK-\\d{4}$"
+    },
+    "kind": {
+      "enum": [
+        "choose_option",
+        "approve_action",
+        "clarify",
+        "approve_stage"
+      ]
+    },
+    "question": {
+      "type": "string"
+    },
+    "context": {
+      "type": "string"
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "title",
+          "pros",
+          "cons",
+          "reversible"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "pros": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cons": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "reversible": {
+            "type": "boolean"
+          }
+        }
+      }
+    },
+    "recommendation": {
+      "type": "object",
+      "required": [
+        "option",
+        "reason"
+      ],
+      "properties": {
+        "option": {
+          "type": "string"
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "risk": {
+      "enum": [
+        "low",
+        "medium",
+        "high"
+      ]
+    },
+    "risk_report": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^ART-\\d{4}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "open",
+        "answered",
+        "rejected",
+        "clarifying"
+      ]
+    },
+    "answer": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "enum": [
+            "choose",
+            "choose_modified",
+            "reject",
+            "ask_more",
+            null
+          ]
+        },
+        "choice": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "answered_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  }
+}

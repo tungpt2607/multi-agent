@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Task",
+  "type": "object",
+  "required": [
+    "id",
+    "request_id",
+    "stage",
+    "agent",
+    "instruction",
+    "inputs",
+    "allowed_tools",
+    "approved_by_decision",
+    "max_tokens",
+    "status",
+    "attempt",
+    "max_attempts"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^TASK-\\d{4}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^REQ-\\d{4}$"
+    },
+    "stage": {
+      "enum": [
+        "intake",
+        "analysis",
+        "design",
+        "planning",
+        "execution",
+        "verification",
+        "delivery"
+      ]
+    },
+    "agent": {
+      "enum": [
+        "intake",
+        "analyst",
+        "designer",
+        "planner",
+        "executor",
+        "reviewer",
+        "guard",
+        "reporter"
+      ]
+    },
+    "instruction": {
+      "type": "string"
+    },
+    "inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "approved_by_decision": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^DEC-\\d{4}$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "max_tokens": {
+      "type": "integer"
+    },
+    "status": {
+      "enum": [
+        "queued",
+        "running",
+        "waiting_decision",
+        "done",
+        "failed"
+      ]
+    },
+    "attempt": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "max_attempts": {
+      "type": "integer",
+      "minimum": 1
+    }
+  }
+}

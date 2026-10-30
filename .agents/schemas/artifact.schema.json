@@ -1,0 +1,69 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Artifact",
+  "type": "object",
+  "required": [
+    "id",
+    "request_id",
+    "task_id",
+    "type",
+    "version",
+    "status",
+    "content_ref",
+    "summary",
+    "sources",
+    "created_by"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^ART-\\d{4}$"
+    },
+    "request_id": {
+      "type": "string",
+      "pattern": "^REQ-\\d{4}$"
+    },
+    "task_id": {
+      "type": "string",
+      "pattern": "^TASK-\\d{4}$"
+    },
+    "type": {
+      "enum": [
+        "spec",
+        "design",
+        "plan",
+        "code",
+        "test_report",
+        "risk_report",
+        "business_record",
+        "report"
+      ]
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "approved",
+        "superseded"
+      ]
+    },
+    "content_ref": {
+      "type": "string"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "created_by": {
+      "type": "string"
+    }
+  }
+}
