@@ -1,6 +1,7 @@
 import json,subprocess,os,sys
 import tempfile,shutil
-src=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+src=os.path.dirname(os.path.abspath(__file__))
+while not os.path.exists(os.path.join(src,'.claude','hooks','gate.py')): src=os.path.dirname(src)
 root=tempfile.mkdtemp()
 shutil.copytree(src,root,dirs_exist_ok=True,ignore=shutil.ignore_patterns(".git"))
 os.chdir(root)
