@@ -1,0 +1,13 @@
+{
+  "id": "TASK-0014",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "Sửa lỗi theo ART-0012 (lần thử 2), điều kiện ART-0013: bước 3 + G1/G2 vào trong marker ở 2 bản nháp CLAUDE.md; làm lại CLAUDE.md.patch; APPLY.md (P7 git apply CLAUDE.md.patch trước apply, L2 exit 2, push P6 tuỳ chọn, ghi chú apply ghi đè khối marker); rules_sync.py N4 + N5 và test.",
+  "inputs": ["ART-0008", "ART-0010", "ART-0011", "ART-0012", "ART-0013"],
+  "approved_by_decision": "DEC-0031",
+  "attempt": 2,
+  "max_attempts": 2,
+  "outputs": ["ART-0014"],
+  "status": "done"
+}

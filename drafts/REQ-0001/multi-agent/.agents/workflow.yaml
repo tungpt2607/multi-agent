@@ -1,0 +1,58 @@
+workflow: standard-v1
+stages:
+  - name: intake
+    agent: intake
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    gate: clarify          # hỏi nếu còn điểm chưa rõ
+  - name: analysis
+    agent: analyst
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    gate: approve_stage    # duyệt đặc tả + tiêu chí nghiệm thu
+  - name: design
+    agent: designer
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    gate: choose_option    # chọn phương án
+  - name: planning
+    agent: planner
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    gate: approve_stage
+  - name: execution
+    agent: executor
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    guard: true            # Guard kiểm tra trước mỗi hành động
+    gate: approve_action   # duyệt từng hành động
+    mode: draft            # chỉ ghi vào drafts/<REQ-id>/
+  - name: verification
+    agent: reviewer
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    on_fail: ask           # không tự làm lại
+    gate: approve_stage
+  - name: delivery
+    agent: reporter
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
+    gate: approve_stage    # xác nhận đóng yêu cầu
+
+models:                    # bảng map duy nhất; đổi hãng chỉ sửa ở đây và trường model của subagent
+  fast: haiku
+  balanced: sonnet
+  strong: opus
+
+agents:                    # hạng mô hình + giới hạn đầu ra
+  intake:   {tier: fast,     max_tokens: 1000}
+  guard:    {tier: balanced, max_tokens: 1000}
+  analyst:  {tier: balanced, max_tokens: 4000}
+  planner:  {tier: balanced, max_tokens: 4000}
+  reviewer: {tier: strong,   max_tokens: 4000}
+  reporter: {tier: fast,     max_tokens: 4000}
+  designer: {tier: strong,   max_tokens: 8000}
+  executor: {tier: balanced, max_tokens: 8000}
+
+budget:
+  development: 300000
+  business: 50000
+  warn_at: 0.8
+  max_attempts: 3
+
+tools:                     # giai đoạn sau
+  development: [repo.read, repo.write, tests.run, ci.deploy]
+  business:    [crm.read, crm.write, email.send, payment.create]

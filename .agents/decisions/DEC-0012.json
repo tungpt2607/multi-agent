@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0012",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0003",
+  "kind": "approve_stage",
+  "question": "[DEC-0012] Bắt đầu bước 4/7 — Lập kế hoạch, agent planner làm?",
+  "context": "planner chia phương án đã chọn thành task nhỏ có thứ tự, phụ thuộc, ước lượng. ~20k token. Chỉ chạy khi DEC-0010 đã chọn.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy planner", "pros": ["Đúng trình tự"], "cons": ["~20k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Thiết kế xong là lập kế hoạch."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:30:00Z"}
+}

@@ -1,0 +1,12 @@
+{
+  "id": "REQ-0002",
+  "type": "development",
+  "title": "Vá lỗ hổng gate.py + luật 'có phiếu người dùng đồng ý thì agent được làm (kể cả push)'",
+  "description": "Tách từ REQ-0001 (DEC-0004 mục 4). Chặn ghi .agents/ qua Bash (python/heredoc), khớp lệnh chính xác thay vì khớp chữ 'deploy' trong nội dung, commit .agents/ theo bước để không mất dữ liệu. Bổ sung (REQ-0001/TASK-0015): reviewer từng ghép chuỗi để né mẫu `env` của BASH_DENY (bị auto mode chặn) → mẫu chặn khớp chuỗi dễ bị lách; Điều phối từng ghi DEC bằng python qua Bash. TASK-0017: gate chặn nhầm lệnh grep có mẫu tìm chứa chuỗi lệnh cấm. Commit REQ-0001: gate chặn nhầm heredoc commit message vì ký tự '>' trong email Co-Authored-By (mẫu chuyển hướng ghi file). stop-hook ~/.claude/stop-hook-git-check.sh nằm ngoài repo: người dùng tự xử lý.",
+  "workflow": "standard-v1",
+  "status": "intake",
+  "waiting_on": [],
+  "token_budget": 200000,
+  "token_used": 0,
+  "created_at": "2026-10-30T18:05:00Z"
+}

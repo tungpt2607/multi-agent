@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0029",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0012",
+  "kind": "choose_option",
+  "question": "[DEC-0029] Xử lý các lỗi nhỏ/ghi chú (L2, push tuỳ chọn, N1 tên marker, N3 mã thoát, N4, N5)?",
+  "context": "ART-0012.",
+  "options": [
+    {"id": "A", "title": "Sửa L2, push tuỳ chọn, N4, N5; chấp nhận N1 (giữ tên rules-sync) và N3 (0/1/2/3)", "pros": ["Sửa cái có hại, giữ cái đã nhất quán"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Sửa tất cả, kể cả đổi tên marker và mã thoát theo ART-0003", "pros": ["Khớp thiết kế"], "cons": ["Sửa nhiều, tốn token"], "reversible": true},
+    {"id": "C", "title": "Chỉ sửa L2", "pros": ["Ít nhất"], "cons": ["Còn N4/N5"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "N1/N3 nội bộ đã nhất quán, đổi chỉ tốn token."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:45:00Z"}
+}

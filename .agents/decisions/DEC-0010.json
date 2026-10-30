@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0010",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0003",
+  "kind": "choose_option",
+  "question": "[DEC-0010] Chọn phương án thiết kế cho REQ-0001 (ART-0003)?",
+  "context": "ART-0003 do designer nộp. Gói A: 1A+2A+3A/S1+4A. Gói B: 1C+2A+3B/S1+4A. Gói C: 1B+2A+3A/S1+4C.",
+  "options": [
+    {"id": "A", "title": "Gói A: pre_gate từng bước + dòng trạng thái + script rules_sync + nháp drafts, người dùng tự áp", "pros": ["Đạt AC-1..AC-8", "Không đụng hook", "Chi phí thấp"], "cons": ["Bước ngoài execution chỉ cưỡng chế bằng quy tắc Điều phối", "Người dùng làm tay áp dụng/push/PR"], "reversible": true},
+    {"id": "B", "title": "Gói B: thêm hook stage_gate.py + lock và CI repo con", "pros": ["Cưỡng chế bằng code"], "cons": ["Lấn REQ-0002", "Người dùng tự thêm .claude/ .github/", "Có thể chặn nhầm"], "reversible": true},
+    {"id": "C", "title": "Gói C: khai báo cấp workflow + người dùng tự sửa", "pros": ["Ít file nhất"], "cons": ["Phải sửa AC-1", "Dễ sai"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đạt đủ tiêu chí, không nới hook, không lấn REQ-0002; thêm B sau được."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:30:00Z"}
+}

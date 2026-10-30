@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0015",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0004",
+  "kind": "approve_stage",
+  "question": "[DEC-0015] Bắt đầu bước 5/7 — Thực thi, mở đầu bằng guard kiểm tra rủi ro việc P1?",
+  "context": "guard đánh giá P1 (bản nháp workflow.yaml) → risk_report → phiếu approve_action riêng trước khi executor chạy. Chỉ chạy khi DEC-0013 duyệt và DEC-0014 không chọn dừng.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy guard cho P1", "pros": ["Đúng trình tự"], "cons": ["~5k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Kế hoạch đã sẵn sàng."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:40:00Z"}
+}

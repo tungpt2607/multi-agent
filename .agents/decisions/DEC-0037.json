@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0037",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0017",
+  "kind": "approve_action",
+  "question": "[DEC-0037] Commit drafts/REQ-0001/ và bản ghi .agents/ (REQ, TASK, DEC, ART) trên nhánh mới agent/REQ-0001 ở multi-agent? Không push, không merge.",
+  "context": "Theo CLAUDE.md: xong Kiểm tra thì commit trên agent/<REQ-id>. Lệnh: git switch -c agent/REQ-0001; git add drafts/REQ-0001 .agents/requests .agents/tasks .agents/decisions .agents/artifacts .agents/ledger .agents/state; git commit. Không đụng CLAUDE.md/workflow.yaml thật. Lưu ý: container tạm, chưa push thì vẫn có thể mất.",
+  "options": [
+    {"id": "A", "title": "Commit trên agent/REQ-0001, bạn tự push", "pros": ["Đúng luật"], "cons": ["Container mất thì mất commit nếu chưa push"], "reversible": true},
+    {"id": "B", "title": "Chưa commit", "pros": [], "cons": ["Dữ liệu có thể mất"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đúng CLAUDE.md, giữ truy vết."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:35:00Z"}
+}

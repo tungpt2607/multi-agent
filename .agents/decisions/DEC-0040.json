@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0040",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "kind": "approve_action",
+  "question": "[DEC-0040] Người dùng yêu cầu push nhánh agent/REQ-0001. CLAUDE.md cấm Điều phối push và gate.py chặn git push. Làm thế nào?",
+  "context": "Đường duy nhất cho Điều phối: công cụ GitHub MCP (tạo nhánh + tải ~107 file lên). Commit trên GitHub sẽ có SHA khác 8d45dee/e7923ae ở máy; vượt hook; ngân sách đã ~100%.",
+  "options": [
+    {"id": "A", "title": "Người dùng tự push: git push -u origin agent/REQ-0001", "pros": ["Giữ luật", "Giữ đúng commit"], "cons": ["Bạn phải chạy lệnh trên máy có quyền"], "reversible": true},
+    {"id": "B", "title": "Ngoại lệ 1 lần: Điều phối dùng GitHub MCP tạo nhánh và tải file lên", "pros": ["Bạn không phải làm"], "cons": ["Vượt luật + hook", "SHA khác bản local", "Tốn token vượt ngân sách"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đúng luật và giữ nguyên lịch sử commit."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose_modified", "choice": null, "note": "Người dùng: 'sửa lại luật. chỉ cần tôi đồng ý thì bạn được làm' → yêu cầu đổi luật (push/hành động ngoài khi có phiếu đồng ý). Hỏi tiếp DEC-0041.", "answered_at": "2026-10-30T20:58:00Z"}
+}

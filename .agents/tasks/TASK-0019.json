@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0019",
+  "request_id": "REQ-0001",
+  "stage": "delivery",
+  "agent": "reporter",
+  "summary": "Biên bản bàn giao + changelog REQ-0001. Commit 8d45dee trên nhánh agent/REQ-0001 (chưa push). Việc còn mở: P6/P7 người dùng tự làm theo drafts/REQ-0001/APPLY.md, P8 reviewer kiểm trên repo thật sau đó; REQ-0002.",
+  "inputs": ["ART-0001", "ART-0002", "ART-0003", "ART-0004", "ART-0017", "ART-0018"],
+  "approved_by_decision": "DEC-0038",
+  "outputs": ["ART-0019"],
+  "status": "done"
+}

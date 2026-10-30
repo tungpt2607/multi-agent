@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0002",
+  "request_id": "REQ-0001",
+  "stage": "analysis",
+  "agent": "analyst",
+  "summary": "Từ đặc tả ART-0001: viết quy tắc, user story, tiêu chí nghiệm thu kiểm chứng được.",
+  "inputs": ["ART-0001"],
+  "approved_by_decision": "DEC-0006",
+  "outputs": ["ART-0002"],
+  "status": "done"
+}

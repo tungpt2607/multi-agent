@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0003",
+  "request_id": "REQ-0001",
+  "stage": "design",
+  "agent": "designer",
+  "summary": "Đề xuất >=2 phương án cho: gate xin phép trước mỗi bước, mục Minh bạch agent, đồng bộ luật sang repo con qua PR + kiểm tra lệch bản, đường áp dụng khi hook chặn sửa luật. DEC-0008: luôn hỏi trước intake.",
+  "inputs": ["ART-0001", "ART-0002"],
+  "approved_by_decision": "DEC-0009",
+  "outputs": ["ART-0003"],
+  "status": "done"
+}

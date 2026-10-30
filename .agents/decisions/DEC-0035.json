@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0035",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0016",
+  "kind": "approve_stage",
+  "question": "[DEC-0035] Duyệt ART-0016 (sửa L3 trong APPLY.md) và cho reviewer kiểm gọn: chỉ mô phỏng lại P7 theo APPLY.md mới?",
+  "context": "~30k token. Nếu đạt: mở phiếu commit trên nhánh agent/REQ-0001 rồi bàn giao.",
+  "options": [
+    {"id": "A", "title": "Duyệt và kiểm gọn", "pros": ["Có kiểm chứng"], "cons": ["~30k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Theo DEC-0034."},
+  "risk": "low", "risk_report": "ART-0013", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:26:00Z"}
+}

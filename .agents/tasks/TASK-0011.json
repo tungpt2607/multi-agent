@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0011",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "P4 (ART-0004): viết drafts/REQ-0001/game-hub/.agents/workflow.yaml (mode: branch + pre_gate), drafts/REQ-0001/game-hub/CLAUDE.md (khối marker Minh bạch agent + bước 3 siết), và drafts/REQ-0001/APPLY.md (lệnh người dùng tự chạy P6/P7). Điều kiện P4 trong ART-0009.",
+  "inputs": ["ART-0004", "ART-0006", "ART-0008", "ART-0009", "ART-0010"],
+  "approved_by_decision": "DEC-0024",
+  "outputs": ["ART-0011"],
+  "status": "done"
+}

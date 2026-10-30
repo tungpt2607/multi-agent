@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0023",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0009",
+  "kind": "approve_action",
+  "question": "[DEC-0023] Cho executor làm P3: viết rules_manifest.json, rules_sync.py, test_rules_sync.py trong drafts/REQ-0001/multi-agent/scripts/?",
+  "context": "risk_report ART-0009: medium (low khi ghi nháp, medium khi người dùng chạy thật). Điều kiện: chỉ ghi trong manifest, chặn .., tuyệt đối, symlink, .git/.claude/.github/knowledge; không xoá, không mạng, không shell=True; git chỉ đọc; apply chỉ trên rules-sync/<sha7> và cây sạch; thiếu marker thì dừng.",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Theo kế hoạch"], "cons": ["~25k token", "Người dùng phải đọc script trước khi apply"], "reversible": true},
+    {"id": "B", "title": "Không cho phép", "pros": [], "cons": ["Thiếu kiểm tra lệch bản (AC-7)"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Ghi nháp rủi ro thấp; rủi ro khi chạy thật do người dùng kiểm soát."},
+  "risk": "medium", "risk_report": "ART-0009", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:18:00Z"}
+}

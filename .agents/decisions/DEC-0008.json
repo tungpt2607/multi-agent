@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0008",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0002",
+  "kind": "clarify",
+  "question": "[DEC-0008] Gate xin phép trước bước Tiếp nhận: coi là đã thoả khi bạn đưa yêu cầu rõ, hay luôn hỏi?",
+  "context": "Giả định A4 của analyst (tiền lệ DEC-0003 đã hỏi riêng).",
+  "options": [
+    {"id": "A", "title": "Luôn hỏi trước intake", "pros": ["Đúng 'tôi đồng ý mới làm'"], "cons": ["Thêm 1 lượt bấm"], "reversible": true},
+    {"id": "B", "title": "Yêu cầu rõ = đồng ý", "pros": ["Nhanh hơn"], "cons": ["Có thể chạy khi bạn chỉ hỏi chơi"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Khớp chỉ đạo DEC-0002."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:20:00Z"}
+}

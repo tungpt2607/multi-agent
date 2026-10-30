@@ -1,0 +1,14 @@
+{
+  "id": "TASK-0017",
+  "request_id": "REQ-0001",
+  "stage": "verification",
+  "agent": "reviewer",
+  "summary": "Kiểm gọn L3 (ART-0016): mô phỏng P7 đúng thứ tự APPLY.md mới trên clone trong scratchpad; kỳ vọng check đầu exit 2, apply exit 0, check cuối exit 0 OK 6/6, mode: branch giữ nguyên; APPLY.md không có lệnh cấm.",
+  "inputs": ["ART-0015", "ART-0016"],
+  "approved_by_decision": "DEC-0035",
+  "attempt": 3,
+  "max_attempts": 2,
+  "outputs": ["ART-0017"],
+  "result": "pass",
+  "status": "done"
+}

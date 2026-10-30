@@ -1,0 +1,13 @@
+{
+  "id": "TASK-0013",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro phần sửa lỗi theo ART-0012 (lần thử 2): DEC-0028 (a)+(c): đưa bước 3 + G1/G2 vào trong khối marker ở cả 2 bản nháp CLAUDE.md, làm lại CLAUDE.md.patch, APPLY.md P7 thêm git apply CLAUDE.md.patch trước apply; DEC-0029 A: sửa L2 (mã thoát kỳ vọng), push P6 tuỳ chọn, N4 bắt lỗi manifest không phải object, N5 thu hẹp whitelist git (bỏ branch tổng quát, chỉ cho branch --show-current). Giữ tên marker rules-sync và mã thoát 0/1/2/3.",
+  "inputs": ["ART-0008", "ART-0009", "ART-0010", "ART-0011", "ART-0012"],
+  "approved_by_decision": "DEC-0030",
+  "attempt": 2,
+  "max_attempts": 2,
+  "outputs": ["ART-0013"],
+  "status": "done"
+}

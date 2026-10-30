@@ -1,0 +1,18 @@
+{
+  "id": "DEC-0002",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "approve_action",
+  "question": "[DEC-0002] Hook chặn Điều phối sửa CLAUDE.md. Làm sao để đưa đoạn 'Minh bạch agent' vào?",
+  "context": "Edit CLAUDE.md bị gate.py chặn. Lách cổng (ghi qua GitHub MCP hoặc python) là vượt luật người dùng đã đặt, cần người dùng duyệt rõ.",
+  "options": [
+    {"id": "A", "title": "Bạn tự dán qua GitHub web/app", "pros": ["Giữ nguyên luật, không lách cổng"], "cons": ["Bạn phải tự sửa 2 repo"], "reversible": true},
+    {"id": "B", "title": "Cho phép một lần: Điều phối ghi qua GitHub MCP vào nhánh claude/new-session-twfsy6 (multi-agent), không merge", "pros": ["Bạn không phải gõ"], "cons": ["Vượt hook một lần; game-hub cần thêm quyền push"], "reversible": true},
+    {"id": "C", "title": "Bạn sửa gate.py cho phép Điều phối sửa CLAUDE.md sau khi có phiếu duyệt", "pros": ["Lần sau không bị kẹt"], "cons": ["Nới luật, rủi ro agent tự sửa luật"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Giữ đúng nguyên tắc chỉ người dùng sửa luật; thay đổi chỉ là dán một đoạn."},
+  "risk": "medium",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose_modified", "choice": null, "note": "Người dùng: 'tôi muốn mọi repo kết nối đến sẽ làm theo đúng luật. đi tuần tự các bước. đến bước nào ai làm phải nói cho tôi. tôi đồng ý mới làm'. → Chạy đủ luồng, xin đồng ý trước mỗi bước; phạm vi: mọi repo.", "answered_at": "2026-10-30T17:56:00Z"}
+}

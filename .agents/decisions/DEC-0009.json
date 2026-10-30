@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0009",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0002",
+  "kind": "approve_stage",
+  "question": "[DEC-0009] Bắt đầu bước 3/7 — Thiết kế, agent designer làm?",
+  "context": "designer đề xuất >=2 phương án (cách đặt gate trước bước, cách kiểm tra lệch bản, đường áp dụng khi hook chặn sửa luật), kèm ưu nhược. Ước lượng ~25k token. Chỉ chạy nếu DEC-0007 duyệt.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy designer", "pros": ["Đúng trình tự"], "cons": ["~25k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Phân tích đã đủ để thiết kế."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:20:00Z"}
+}

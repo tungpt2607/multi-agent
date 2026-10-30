@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0019",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0007",
+  "kind": "approve_action",
+  "question": "[DEC-0019] Cho executor làm P2: viết bản nháp CLAUDE.md + .patch trong drafts/REQ-0001/multi-agent/?",
+  "context": "risk_report ART-0007: LOW. Điều kiện: chỉ 2 file; diff chỉ siết bước 3 + mục Minh bạch agent (marker) + G1/G2; không làm yếu nguyên tắc; không khẳng định hook cưỡng chế pre_gate.",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Theo kế hoạch"], "cons": ["~20k token"], "reversible": true},
+    {"id": "B", "title": "Không cho phép", "pros": [], "cons": ["Dừng"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Rủi ro thấp, hoàn tác được."},
+  "risk": "low", "risk_report": "ART-0007", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:02:00Z"}
+}

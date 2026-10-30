@@ -1,0 +1,14 @@
+{
+  "id": "TASK-0015",
+  "request_id": "REQ-0001",
+  "stage": "verification",
+  "agent": "reviewer",
+  "summary": "Kiểm lại phần sửa (ART-0014) theo lỗi L1/L2/N4/N5 của ART-0012 và điều kiện C1-C5 của ART-0013. Các mục đã đạt ở ART-0012 không cần kiểm lại trừ khi bị ảnh hưởng.",
+  "inputs": ["ART-0012", "ART-0013", "ART-0014"],
+  "approved_by_decision": "DEC-0032",
+  "attempt": 2,
+  "max_attempts": 2,
+  "outputs": ["ART-0015"],
+  "result": "fail",
+  "status": "done"
+}

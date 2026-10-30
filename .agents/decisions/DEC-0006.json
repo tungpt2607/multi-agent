@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0006",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "kind": "approve_stage",
+  "question": "[DEC-0006] Bắt đầu bước 2/7 — Phân tích, agent analyst làm?",
+  "context": "analyst đọc ART-0001, viết quy tắc, user story, tiêu chí nghiệm thu kiểm chứng được (ART mới). Chỉ đọc + ghi artifact. Ước lượng ~25k token. Chỉ chạy nếu DEC-0005 được duyệt.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy analyst", "pros": ["Đúng trình tự"], "cons": ["~25k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": ["Dừng để xem lại"], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đặc tả đã rõ, phân tích là bước tiếp theo theo workflow."},
+  "risk": "low",
+  "risk_report": null,
+  "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:12:00Z"}
+}

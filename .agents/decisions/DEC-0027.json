@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0027",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0011",
+  "kind": "clarify",
+  "question": "[DEC-0027] Ngân sách ~352k/400k (88%); còn P5, P8, reporter ~70k. Xử lý thế nào?",
+  "context": "Theo CLAUDE.md: 80% báo, 100% dừng và hỏi.",
+  "options": [
+    {"id": "A", "title": "Nâng lên 460k", "pros": ["Chạy hết, có bàn giao"], "cons": ["Tốn thêm"], "reversible": true},
+    {"id": "B", "title": "Giữ 400k: chạy P5, bỏ reporter, P8 làm ở phiên sau", "pros": ["Tiết kiệm"], "cons": ["Chưa đóng REQ"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Kiểm tra là bắt buộc; dừng giữa chừng tốn hơn."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:30:00Z"}
+}

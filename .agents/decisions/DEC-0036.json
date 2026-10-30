@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0036",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0017",
+  "kind": "approve_stage",
+  "question": "[DEC-0036] Duyệt bước Kiểm tra (ART-0012 + ART-0015 + ART-0017: tổng hợp ĐẠT)?",
+  "context": "Nhận xét nhỏ: chú thích APPLY.md:45 (diff --stat chỉ có .agents/workflow.yaml).",
+  "options": [
+    {"id": "A", "title": "Duyệt, tự sửa chú thích dòng 45 khi áp dụng", "pros": ["Không tốn token"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Duyệt, để executor sửa dòng 45", "pros": ["Bản nháp chuẩn"], "cons": ["~15k token"], "reversible": true},
+    {"id": "C", "title": "Không duyệt", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Chỉ là chú thích, không ảnh hưởng lệnh."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "B", "note": "", "answered_at": "2026-10-30T20:35:00Z"}
+}

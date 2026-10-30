@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0005",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro việc P1 (ART-0004): executor viết bản nháp workflow.yaml thêm pre_gate: approve_stage vào 7 stage + .patch, chỉ ghi trong drafts/REQ-0001/.",
+  "inputs": ["ART-0003", "ART-0004"],
+  "approved_by_decision": "DEC-0015",
+  "outputs": ["ART-0005"],
+  "status": "done"
+}

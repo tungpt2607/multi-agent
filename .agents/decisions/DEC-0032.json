@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0032",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0014",
+  "kind": "approve_stage",
+  "question": "[DEC-0032] Duyệt kết quả sửa lỗi (ART-0014) và cho reviewer kiểm lại (chỉ các phần đã sửa)?",
+  "context": "Phạm vi kiểm lại: git apply --check CLAUDE.md.patch, diff nháp vs thật, diff 2 bản nháp, unittest, grep từ cấm, thứ tự P7 trong APPLY.md (mô phỏng trong scratchpad). ~40k token. Lần thử 2/2: không đạt thì bắt buộc hỏi.",
+  "options": [
+    {"id": "A", "title": "Duyệt và chạy reviewer kiểm lại", "pros": ["Đúng trình tự"], "cons": ["~40k token"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Phải kiểm trước khi áp dụng thật."},
+  "risk": "low", "risk_report": "ART-0013", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:02:00Z"}
+}

@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0034",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0015",
+  "kind": "choose_option",
+  "question": "[DEC-0034] Kiểm tra lần 2/2 KHÔNG ĐẠT (L3: APPLY.md P7 thiếu commit sau git apply nên apply từ chối cây bẩn). Xử lý thế nào?",
+  "context": "ART-0015. Reviewer đã thử trên clone: thêm git add CLAUDE.md + commit giữa APPLY.md:40-41 → apply rc=0, check OK 6/6. attempt = max_attempts.",
+  "options": [
+    {"id": "A", "title": "Lần thử 3: executor thêm bước commit vào APPLY.md, reviewer kiểm lại chỉ mô phỏng P7", "pros": ["Có kiểm chứng"], "cons": ["~70k token, vượt max_attempts"], "reversible": true},
+    {"id": "B", "title": "Người dùng tự thêm 2 dòng vào APPLY.md (đã được reviewer kiểm trên clone), đóng bước Kiểm tra", "pros": ["Gần như không tốn token"], "cons": ["Không có lượt kiểm riêng trên file sửa"], "reversible": true},
+    {"id": "C", "title": "Sửa rules_sync apply chấp nhận cây chỉ bẩn ở CLAUDE.md", "pros": ["Ít bước tay"], "cons": ["Nới điều kiện ART-0009, cần guard lại"], "reversible": true},
+    {"id": "D", "title": "Dừng REQ-0001 ở trạng thái không đạt", "pros": [], "cons": ["Chưa áp dụng được"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Giữ đúng luật: mọi thay đổi đều qua kiểm tra; lỗi nhỏ nên lượt cuối gọn."},
+  "risk": "low", "risk_report": "ART-0013", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "Kèm nâng ngân sách lên 720k. Dùng làm approve_action cho executor (phạm vi APPLY.md đã có trong ART-0013).", "answered_at": "2026-10-30T20:20:00Z"}
+}

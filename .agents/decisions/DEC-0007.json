@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0007",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0002",
+  "kind": "approve_stage",
+  "question": "[DEC-0007] Duyệt kết quả bước Phân tích (ART-0002: 9 quy tắc, 4 user story, 8 tiêu chí nghiệm thu)?",
+  "context": "ART-0002 do analyst nộp. Giả định A1-A3 để designer chốt.",
+  "options": [
+    {"id": "A", "title": "Duyệt", "pros": ["Sang Thiết kế"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Làm lại / sửa", "pros": [], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Tiêu chí đủ, kiểm chứng được, đúng phạm vi."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:20:00Z"}
+}

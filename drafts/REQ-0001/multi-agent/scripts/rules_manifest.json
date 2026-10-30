@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "description": "Danh sách file luật đồng bộ từ repo gốc sang repo con (S1, ART-0003 mục 3A).",
+  "entries": [
+    {
+      "path": ".agents/workflow.yaml",
+      "kind": "whole",
+      "ignore_mode": true
+    },
+    {
+      "path": ".agents/schemas/*.json",
+      "kind": "glob"
+    },
+    {
+      "path": "CLAUDE.md",
+      "kind": "markers",
+      "marker": "minh-bach-agent"
+    }
+  ]
+}

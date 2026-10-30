@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0009",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro P3 (scripts/rules_manifest.json, rules_sync.py check/apply, test 3 trường hợp) và P4 (bản nháp phía game-hub giữ mode: branch + APPLY.md lệnh người dùng chạy) theo ART-0004; tất cả chỉ ghi trong drafts/REQ-0001/.",
+  "inputs": ["ART-0003", "ART-0004", "ART-0006", "ART-0008"],
+  "approved_by_decision": "DEC-0022",
+  "outputs": ["ART-0009"],
+  "status": "done"
+}

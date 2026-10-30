@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0018",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0006",
+  "kind": "approve_stage",
+  "question": "[DEC-0018] Chạy guard kiểm tra rủi ro việc P2 (bản nháp CLAUDE.md: mục Minh bạch agent + sửa vòng điều phối)?",
+  "context": "~5k token. Sau đó executor chỉ chạy khi có phiếu approve_action riêng.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy guard cho P2", "pros": ["Đúng trình tự"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Theo kế hoạch ART-0004."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T18:55:00Z"}
+}

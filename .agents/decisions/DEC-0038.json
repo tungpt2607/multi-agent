@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0038",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0017",
+  "kind": "approve_stage",
+  "question": "[DEC-0038] Bắt đầu bước 7/7 — Bàn giao, agent reporter viết biên bản bàn giao + changelog?",
+  "context": "~20k token. P6/P7 người dùng tự làm theo APPLY.md; P8 (reviewer kiểm trên repo thật) chạy sau khi bạn áp dụng, ghi trong biên bản là việc còn mở.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy reporter", "pros": ["Đóng REQ"], "cons": ["~20k"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Còn đủ ngân sách (~675k/720k sau commit)."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T20:35:00Z"}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0025",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0011",
+  "kind": "approve_stage",
+  "question": "[DEC-0025] Duyệt kết quả P3 (ART-0010) và P4 (ART-0011), kết thúc bước Thực thi phần nháp?",
+  "context": "ART-0010: rules_sync.py + manifest + 8 test (chưa chạy; mã thoát 3 cho lỗi đầu vào lệch ART-0003). ART-0011: nháp game-hub + APPLY.md.",
+  "options": [
+    {"id": "A", "title": "Duyệt", "pros": ["Sang Kiểm tra"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Làm lại / sửa", "pros": [], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đủ việc P1-P4; điểm lệch nhỏ để reviewer đối chiếu."},
+  "risk": "low", "risk_report": "ART-0009", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:30:00Z"}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0030",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0012",
+  "kind": "clarify",
+  "question": "[DEC-0030] Ngân sách ~405k/460k (88%); sửa lỗi (guard + executor + reviewer lại) và bàn giao cần ~90k. Xử lý thế nào?",
+  "context": "Sửa lỗi = lần thử 2 (max_attempts 2).",
+  "options": [
+    {"id": "A", "title": "Nâng lên 560k, sửa ngay", "pros": ["Xong trong phiên"], "cons": ["Tốn thêm"], "reversible": true},
+    {"id": "B", "title": "Dừng, sửa ở phiên sau", "pros": ["Không tốn thêm"], "cons": ["Bản ghi chưa commit có thể mất"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Lỗi rõ, sửa nhỏ."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T19:45:00Z"}
+}

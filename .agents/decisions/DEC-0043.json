@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0043",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "kind": "approve_action",
+  "question": "[DEC-0043] Người dùng muốn push agent/REQ-0001 và merge vào main. Merge nội dung gì, merge thế nào?",
+  "context": "Remote agent/REQ-0001 hiện có drafts/ (khớp byte). Chưa có requests/tasks/decisions. CLAUDE.md quy định không merge; gate.py chặn agent sửa CLAUDE.md/workflow.yaml. P6 (patch đã git apply --check đạt ở ART-0012/0015) qua GitHub MCP sẽ vượt hook. P7 game-hub cần quyền push riêng.",
+  "options": [
+    {"id": "A1", "title": "Áp luật thật (P6) + drafts + sổ, rồi merge", "pros": ["Luật có hiệu lực ngay ở multi-agent"], "cons": ["Vượt hook thêm lần nữa", "P8 kiểm sau merge"], "reversible": true},
+    {"id": "A2", "title": "Chỉ drafts + sổ, rồi merge", "pros": ["Không đụng luật thật"], "cons": ["Luật chưa có hiệu lực"], "reversible": true},
+    {"id": "B1", "title": "Mở PR và Điều phối merge ngay", "pros": ["Đúng ý người dùng", "Có PR để truy vết"], "cons": [], "reversible": true},
+    {"id": "B2", "title": "Mở PR, người dùng tự bấm merge", "pros": ["Người dùng xem diff trước"], "cons": ["Thêm một thao tác"], "reversible": true}
+  ],
+  "recommendation": {"option": "A1+B1", "reason": "Khớp ý người dùng; patch đã được kiểm --check; PR giữ truy vết."},
+  "risk": "high", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A1+B1", "note": "Áp luật thật (P6) + drafts + sổ; mở PR và Điều phối merge vào main.", "answered_at": "2026-10-30T21:20:00Z"}
+}

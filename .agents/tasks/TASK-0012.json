@@ -1,0 +1,14 @@
+{
+  "id": "TASK-0012",
+  "request_id": "REQ-0001",
+  "stage": "verification",
+  "agent": "reviewer",
+  "summary": "P5 (ART-0004): kiểm tra bản nháp trong drafts/REQ-0001/ theo AC-1..AC-4, AC-7 và điều kiện guard (ART-0005, ART-0007, ART-0009).",
+  "inputs": ["ART-0002", "ART-0004", "ART-0005", "ART-0006", "ART-0007", "ART-0008", "ART-0009", "ART-0010", "ART-0011"],
+  "approved_by_decision": "DEC-0026",
+  "attempt": 1,
+  "max_attempts": 2,
+  "outputs": ["ART-0012"],
+  "result": "fail",
+  "status": "done"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0006",
+  "request_id": "REQ-0001",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "P1 (ART-0004): viết drafts/REQ-0001/multi-agent/.agents/workflow.yaml (bản sao .agents/workflow.yaml + pre_gate: approve_stage ở 7 stage, giữ nguyên mọi dòng khác gồm mode: draft) và workflow.yaml.patch cùng thư mục. Điều kiện ART-0005.",
+  "inputs": ["ART-0004", "ART-0005"],
+  "approved_by_decision": "DEC-0016",
+  "outputs": ["ART-0006"],
+  "status": "done"
+}

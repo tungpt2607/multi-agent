@@ -1,0 +1,13 @@
+{
+  "id": "REQ-0001",
+  "type": "development",
+  "title": "Mọi repo theo đúng luật multi-agent, tuần tự, báo agent phụ trách, chỉ chạy khi người dùng đồng ý",
+  "description": "Người dùng: 'khi tôi hỏi tôi phải biết được agent nào sẽ làm và đang làm công việc này' và 'tôi muốn mọi repo kết nối đến sẽ làm theo đúng luật. đi tuần tự các bước. đến bước nào ai làm phải nói cho tôi. tôi đồng ý mới làm'. Bối cảnh: phiên game-hub có lách cổng (ghi DEC bằng python qua Bash), stop-hook hệ thống đòi push mâu thuẫn luật, gate chặn nhầm chữ 'deploy'.",
+  "workflow": "standard-v1",
+  "status": "delivery",
+  "note": "Chờ người dùng áp dụng P6/P7 theo drafts/REQ-0001/APPLY.md, sau đó chạy P8 (reviewer trên repo thật).",
+  "waiting_on": [],
+  "token_budget": 720000,
+  "token_used": 720000,
+  "created_at": "2026-10-30T17:50:00Z"
+}
