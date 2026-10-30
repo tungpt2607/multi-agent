@@ -2,27 +2,34 @@ workflow: standard-v1
 stages:
   - name: intake
     agent: intake
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     gate: clarify          # hỏi nếu còn điểm chưa rõ
   - name: analysis
     agent: analyst
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     gate: approve_stage    # duyệt đặc tả + tiêu chí nghiệm thu
   - name: design
     agent: designer
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     gate: choose_option    # chọn phương án
   - name: planning
     agent: planner
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     gate: approve_stage
   - name: execution
     agent: executor
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     guard: true            # Guard kiểm tra trước mỗi hành động
     gate: approve_action   # duyệt từng hành động
     mode: draft            # chỉ ghi vào drafts/<REQ-id>/
   - name: verification
     agent: reviewer
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     on_fail: ask           # không tự làm lại
     gate: approve_stage
   - name: delivery
     agent: reporter
+    pre_gate: approve_stage  # duyệt trước khi giao Task cho bước này
     gate: approve_stage    # xác nhận đóng yêu cầu
 
 models:                    # bảng map duy nhất; đổi hãng chỉ sửa ở đây và trường model của subagent
