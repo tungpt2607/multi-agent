@@ -1,0 +1,19 @@
+{
+  "id": "ART-0009",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0009",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0009.md",
+  "summary": "P3 medium (low lúc ghi nháp, medium khi chạy thật trên repo con): script không ghi ngoài manifest, không xoá, không mạng, không đụng .git/.claude, apply kiểm nhánh/cây sạch trước khi ghi. P4 low: APPLY.md không lệnh phá huỷ, không merge, game-hub giữ mode: branch. Hoàn tác được. Các file chưa tồn tại lúc đánh giá, P5 kiểm lại.",
+  "sources": [
+    ".agents/tasks/TASK-0009.json",
+    ".agents/artifacts/ART-0004.md:13-14",
+    ".agents/artifacts/ART-0003.md:88-99",
+    ".agents/artifacts/ART-0007.md",
+    ".claude/hooks/gate.py:127-128",
+    ".claude/hooks/gate.py:136-138"
+  ],
+  "created_by": "guard"
+}

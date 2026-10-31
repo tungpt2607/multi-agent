@@ -1,0 +1,17 @@
+{
+  "id": "ART-0010",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0010",
+  "type": "code",
+  "version": 1,
+  "status": "draft",
+  "content_ref": "drafts/REQ-0001/multi-agent/scripts/",
+  "summary": "Tạo rules_manifest.json, rules_sync.py (check/apply, chỉ stdlib), test_rules_sync.py (unittest tempfile) trong drafts/REQ-0001/multi-agent/scripts/. Mã thoát 0/1/2 + 3 cho lỗi/từ chối. Chưa chạy test.",
+  "sources": [
+    ".agents/tasks/TASK-0010.json",
+    ".agents/artifacts/ART-0004.md:13",
+    ".agents/artifacts/ART-0003.md:95-100",
+    ".agents/artifacts/ART-0009.md:7-25"
+  ],
+  "created_by": "executor"
+}
