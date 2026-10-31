@@ -1,0 +1,19 @@
+{
+  "id": "ART-0001",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0001",
+  "type": "spec",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0001.md",
+  "summary": "Đặc tả REQ-0001: mọi repo kết nối tự động theo luật multi-agent; tuần tự; báo agent phụ trách trước mỗi bước; gate xin phép trước mỗi bước trong workflow.yaml; chép luật từ multi-agent qua PR có kiểm tra lệch bản. Lỗ hổng gate tách sang REQ-0002.",
+  "sources": [
+    ".agents/requests/REQ-0001.json:5",
+    ".agents/tasks/TASK-0001.json:6",
+    ".agents/workflow.yaml:5-18",
+    ".agents/decisions/DEC-0002.json:17",
+    ".agents/decisions/DEC-0003.json:16",
+    ".agents/decisions/DEC-0004.json:16"
+  ],
+  "created_by": "intake"
+}
