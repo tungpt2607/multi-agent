@@ -1,0 +1,26 @@
+{
+  "id": "ART-0015",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0015",
+  "type": "test_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0015.md",
+  "summary": "P5 lần 2/2 KHÔNG ĐẠT. Đạt: (1) CLAUDE.md.patch và workflow.yaml.patch --check rc=0; diff thật vs nháp chỉ 29c29 (con trỏ) + 34a35,49 (khối marker); nội dung siết, G1/G2 đúng ART-0007; 2 bản nháp CLAUDE.md trùng; (2) unittest 20/20 OK, có ca N4 và từ chối whitelist; (3) từ cấm chỉ dương tính giả, git_allowed chỉ cho rev-parse <không cờ>, branch --show-current, status --porcelain; (5) APPLY.md L2 sửa (exit 2), push tuỳ chọn, không lệnh cấm, có ghi chú ghi đè marker. Không đạt: (4) mô phỏng P7 đúng thứ tự APPLY.md: check rc=2 -> git apply rc=0 -> apply rc=3 'repo con còn thay đổi chưa commit' -> check rc=1 (L3: thiếu commit CLAUDE.md giữa git apply và apply). Chẩn đoán: thêm commit thì apply rc=0, check OK 6/6, mode: branch giữ, trùng bản nháp game-hub.",
+  "sources": [
+    ".agents/tasks/TASK-0015.json",
+    ".agents/artifacts/ART-0007.md:12,29",
+    ".agents/artifacts/ART-0012.md",
+    ".agents/artifacts/ART-0013.md",
+    ".agents/artifacts/ART-0014.md",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:29,36-49",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md.patch",
+    "drafts/REQ-0001/multi-agent/.agents/workflow.yaml.patch",
+    "drafts/REQ-0001/multi-agent/scripts/rules_sync.py:24,147-172,250-257,278",
+    "drafts/REQ-0001/multi-agent/scripts/test_rules_sync.py:186-226",
+    "drafts/REQ-0001/APPLY.md:3,25,37-48,53",
+    "drafts/REQ-0001/game-hub/CLAUDE.md",
+    "drafts/REQ-0001/game-hub/.agents/workflow.yaml:24"
+  ],
+  "created_by": "reviewer"
+}

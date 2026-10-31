@@ -1,0 +1,17 @@
+{
+  "id": "ART-0014",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0014",
+  "type": "code",
+  "version": 1,
+  "status": "draft",
+  "content_ref": "drafts/REQ-0001/",
+  "summary": "Sửa lỗi lần 2: bước 3 siết + G1/G2 chuyển vào trong khối marker (mục 'Xin phép trước mỗi bước'), bước 3 ở Vòng điều phối thành con trỏ; 2 bản nháp CLAUDE.md trùng nhau; CLAUDE.md.patch sinh lại (@@ -26,13 +26,28 @@); APPLY.md P7 thêm git apply --check/apply, exit 2, push tuỳ chọn, ghi chú ghi đè khối marker; rules_sync.py N4 (manifest không phải object -> exit 3) và N5 (whitelist git theo đối số); test thêm ca N4 và whitelist. Chưa chạy lệnh nào (git apply --check, unittest chờ P5).",
+  "sources": [
+    ".agents/tasks/TASK-0014.json",
+    ".agents/artifacts/ART-0012.md:53-70",
+    ".agents/artifacts/ART-0013.md:7-12",
+    "CLAUDE.md:26-38"
+  ],
+  "created_by": "executor"
+}

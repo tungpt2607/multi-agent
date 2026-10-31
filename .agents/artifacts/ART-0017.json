@@ -1,0 +1,18 @@
+{
+  "id": "ART-0017",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0017",
+  "type": "test_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0017.md",
+  "summary": "L3 ĐẠT: P7 trên clone game-hub: check1 rc2, apply --check rc0, apply rc0, add rc0, commit rc0, rules_sync apply rc0 (nhánh rules-sync/7db338d), check cuối rc0 OK 6/6, mode: branch giữ nguyên; APPLY.md không có lệnh cấm. Nhận xét nhỏ: chú thích diff --stat dòng 45.",
+  "sources": [
+    "drafts/REQ-0001/APPLY.md:3",
+    "drafts/REQ-0001/APPLY.md:29",
+    "drafts/REQ-0001/APPLY.md:33-47",
+    "drafts/REQ-0001/APPLY.md:55",
+    ".agents/artifacts/ART-0016.json"
+  ],
+  "created_by": "reviewer"
+}
