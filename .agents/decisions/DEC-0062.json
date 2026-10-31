@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0062",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0030",
+  "kind": "approve_stage",
+  "question": "[DEC-0062] Người dùng muốn đưa toàn bộ sổ .agents/ và drafts lên main (~100 file, ~395 KB). Phạm vi và ngân sách?",
+  "context": "artifacts 161KB, ledger 121KB, drafts/REQ-0002 82KB (66KB là bản sao gate.py/test đã có trên main), decisions/tasks/requests/state 32KB. Qua GitHub MCP phải gửi lại nội dung: ~400k token (toàn bộ) / ~330k (bỏ bản sao trùng). Quy trình: guard → phiếu PR có vân tay → phiếu merge riêng.",
+  "options": [
+    {"id": "A", "title": "Toàn bộ trừ 2 bản sao trùng (gate.py, test_gate.py trong drafts), ngân sách mới 360k", "pros": ["Đủ truy vết", "Bớt ~70k"], "cons": ["Tốn nhiều token"], "reversible": true},
+    {"id": "B", "title": "Toàn bộ đúng 100 file, ngân sách mới 430k", "pros": ["Đủ nguyên văn"], "cons": ["Tốn nhất, trùng lặp"], "reversible": true},
+    {"id": "C", "title": "Chỉ sổ decisions/tasks/requests + APPLY.md (~40KB), ~50k", "pros": ["Rẻ"], "cons": ["Thiếu artifacts, ledger"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đúng ý 'toàn bộ', bỏ phần trùng không có giá trị."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "Toàn bộ trừ bản sao trùng; ngân sách thêm 360k.", "answered_at": "2026-10-31T01:00:00Z"}
+}

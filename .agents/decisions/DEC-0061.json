@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0061",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0030",
+  "kind": "approve_stage",
+  "question": "[DEC-0061] PR #2 đã merge (189bde2). Áp dụng và đóng REQ-0002 thế nào?",
+  "context": "settings.json có thể chỉ nạp lúc mở phiên → thử L5 trong phiên này chưa chắc đúng. Phiên mới clone main sẽ dùng gate mới. Ngân sách ~700k/720k.",
+  "options": [
+    {"id": "A", "title": "Đóng tại đây: ghi sổ + commit cục bộ; ở phiên mới bạn thử ô bấm đầu tiên, bị chặn nhầm thì revert PR #2", "pros": ["Không vượt ngân sách", "Thử ở môi trường thật"], "cons": ["Chưa chạy pytest với gate thật trong container"], "reversible": true},
+    {"id": "B", "title": "Áp ngay vào container (switch nhánh từ origin/main) và chạy pytest với gate thật", "pros": ["Kiểm thêm một lần"], "cons": ["~20k, vượt ngân sách", "Có thể chưa thử được L5 thật"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Lần thử L5 thật chỉ có ý nghĩa ở phiên mới."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-31T00:45:00Z"}
+}

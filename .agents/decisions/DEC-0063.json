@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0063",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0031",
+  "kind": "approve_action",
+  "question": "[DEC-0063] {{MCP create_branch tungpt2607/multi-agent main->agent/REQ-0002-records}} {{MCP push_files tungpt2607/multi-agent agent/REQ-0002-records}} {{MCP create_pull_request tungpt2607/multi-agent agent/REQ-0002-records->main}} Đẩy sổ .agents/ + drafts/REQ-0002/APPLY.md lên repo PUBLIC và mở PR (chưa merge)?",
+  "context": "risk_report ART-0031: low, không secret. Repo public: ledger (câu trả lời gốc) sẽ công khai. Không đẩy tool_log.jsonl và drafts/REQ-0002/.claude/ (trùng main).",
+  "options": [
+    {"id": "A", "title": "Đồng ý, gồm cả ledger", "pros": ["Đủ truy vết"], "cons": ["Câu trả lời gốc công khai"], "reversible": true},
+    {"id": "B", "title": "Đồng ý, trừ ledger", "pros": ["Không công khai câu trả lời gốc"], "cons": ["Thiếu bằng chứng gốc"], "reversible": true},
+    {"id": "C", "title": "Không", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "B", "reason": "Repo public; ledger chỉ cần cho hook trong container."},
+  "risk": "low", "risk_report": "ART-0031", "status": "answered",
+  "answer": {"action": "choose", "choice": "B", "note": "Đồng ý, trừ ledger.", "answered_at": "2026-10-31T01:10:00Z"}
+}

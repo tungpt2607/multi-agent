@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0057",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0028",
+  "kind": "approve_stage",
+  "question": "[DEC-0057] Duyệt ART-0028 (sửa L1/L3/L4/L5/L2) và cho reviewer kiểm lại lần 2/2 (~50k)?",
+  "context": "Test chưa chạy. Ngân sách ~530k/620k (85%). Lần 2/2: không đạt thì bắt buộc hỏi.",
+  "options": [
+    {"id": "A", "title": "Duyệt và chạy reviewer", "pros": ["Đúng trình tự"], "cons": ["~50k"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Phải kiểm trước khi mở PR."},
+  "risk": "medium", "risk_report": "ART-0027", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T23:45:00Z"}
+}

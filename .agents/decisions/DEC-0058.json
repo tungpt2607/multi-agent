@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0058",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0029",
+  "kind": "approve_stage",
+  "question": "[DEC-0058] Duyệt kết quả Kiểm tra REQ-0002 (ART-0029: 270/270 pass, L5 còn điều kiện mở) và ngân sách cho bước mở PR/merge?",
+  "context": "L5: ledger thật 38/38 tool_input có khoá answers (ghi ở PostToolUse); nếu PreToolUse cũng có thì gate mới chặn mọi ô bấm → revert PR trên GitHub web hoặc khôi phục .bak. Ngân sách ~585k/620k; mở PR qua MCP phải gửi lại nội dung gate.py + test (~80k) + guard + merge.",
+  "options": [
+    {"id": "A", "title": "Duyệt, chấp nhận L5 (thử ô bấm thật ngay sau khi áp), nâng lên 720k, chạy guard cho việc mở PR", "pros": ["Vá được lỗ giả câu trả lời"], "cons": ["Rủi ro khoá ô bấm"], "reversible": true},
+    {"id": "B", "title": "Bỏ L5 khỏi bản vá trước khi áp (executor sửa nhỏ + reviewer)", "pros": ["Không rủi ro khoá ô bấm"], "cons": ["Thêm ~60k, còn lỗ L5"], "reversible": true},
+    {"id": "C", "title": "Duyệt nhưng dừng ở đây, PR để phiên sau", "pros": ["Không tốn thêm"], "cons": ["Bản nháp chỉ trong container, có thể mất"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Có đường quay lại rõ ràng; bạn vẫn nhắn chat được nếu ô bấm bị khoá."},
+  "risk": "medium", "risk_report": "ART-0027", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "Chấp nhận rủi ro L5; nâng 720k; làm PR.", "answered_at": "2026-10-31T00:05:00Z"}
+}

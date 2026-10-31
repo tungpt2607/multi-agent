@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0055",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0026",
+  "kind": "choose_option",
+  "question": "[DEC-0055] Kiểm tra lần 1/2 KHÔNG ĐẠT (ART-0026: L1 nghiêm trọng sort --o=, L2-L8). Sửa những gì, ngân sách bao nhiêu?",
+  "context": "163/163 test pass nhưng L1 cho ghi file bất kỳ (giả ledger, ghi đè gate). L2 switch nhánh về gate cũ. L3 grep -r đọc .env. L4 vân tay MCP/merge thiếu PR/nhánh đích. L5 AskUserQuestion có trường answers model có thể tự điền. L6-L8 thấp/đã chấp nhận. Đã dùng ~425k/480k.",
+  "options": [
+    {"id": "A", "title": "Sửa L1, L3, L4, L5 (chặn AskUserQuestion có answers điền sẵn); L2 ghi thứ tự trong APPLY.md; L6-L8 sang REQ-0003", "pros": ["Vá các lỗ nặng"], "cons": ["~120k"], "reversible": true},
+    {"id": "B", "title": "Chỉ sửa L1; còn lại sang REQ-0003", "pros": ["Rẻ"], "cons": ["Còn L3-L5"], "reversible": true},
+    {"id": "C", "title": "Sửa tất cả L1-L8", "pros": ["Đủ nhất"], "cons": ["Tốn nhất"], "reversible": true},
+    {"id": "B1", "title": "Ngân sách 620k", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A+620k", "reason": "L1 và L5 làm mất ý nghĩa phiếu; L3, L4 rẻ nếu sửa cùng lúc."},
+  "risk": "high", "risk_report": "ART-0024", "status": "answered",
+  "answer": {"action": "choose", "choice": "A+620k", "note": "Sửa L1, L3, L4, L5; L2 ghi thứ tự trong APPLY.md; L6-L8 sang REQ-0003; ngân sách 620k.", "answered_at": "2026-10-30T23:20:00Z"}
+}

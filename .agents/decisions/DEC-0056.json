@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0056",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0027",
+  "kind": "approve_action",
+  "question": "[DEC-0056] Cho executor sửa bản nháp (lần 2/2): L1, L3, L4, L5 + ghi L2 vào APPLY.md, chỉ trong drafts/REQ-0002/?",
+  "context": "risk_report ART-0027: medium; thu hẹp quyền. Rủi ro L5 có thể chặn nhầm ô bấm thật nếu tool_input thật chứa answers ở PreToolUse; giảm bằng test ca hợp lệ, giữ gate cũ, thử phiếu thật sau khi áp.",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Vá lỗ nặng"], "cons": ["~60k"], "reversible": true},
+    {"id": "B", "title": "Cho phép nhưng bỏ L5", "pros": ["Không rủi ro chặn nhầm ô bấm"], "cons": ["Còn lỗ giả câu trả lời"], "reversible": true},
+    {"id": "C", "title": "Không cho phép", "pros": [], "cons": ["Dừng"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "L5 là lỗ gốc; có đường quay lại nếu chặn nhầm."},
+  "risk": "medium", "risk_report": "ART-0027", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T23:30:00Z"}
+}
