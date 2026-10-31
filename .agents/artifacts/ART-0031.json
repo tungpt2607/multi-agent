@@ -1,0 +1,10 @@
+{
+  "id": "ART-0031",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0031",
+  "type": "risk_report",
+  "created_by": "guard",
+  "status": "draft",
+  "summary": "Rủi ro low. Không thấy secret. Ledger chứa câu trả lời gốc; chưa biết repo public/private. Loại tool_log.jsonl và drafts/.claude.",
+  "sources": [".agents/ledger/answers.jsonl", ".agents/tasks/TASK-0031.json", "drafts/REQ-0002/.claude/hooks/gate.py:45"]
+}
