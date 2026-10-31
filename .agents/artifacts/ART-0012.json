@@ -1,0 +1,27 @@
+{
+  "id": "ART-0012",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0012",
+  "type": "test_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0012.md",
+  "summary": "P5 KHÔNG ĐẠT. Đạt: (1) AC-1/AC-4 patch --check exit 0, chỉ +7 pre_gate, mode giữ; (2) AC-2/AC-3 bước 3 siết, marker đủ cặp, G1/G2 đúng ART-0007, không nói hook cưỡng chế; (3) AC-7 15/15 test OK, check chỉ đọc (nguồn thật exit 3 vì chưa áp P6; mô phỏng sau P7 OK 6/6 exit 0), mã thoát lệch ART-0003 (2=thiếu, 3=lỗi); (4) từ cấm chỉ dương tính giả; (6) nháp game-hub giữ mode: branch, trùng bản multi-agent. Không đạt: (5) APPLY.md P7 chạy apply khi CLAUDE.md game-hub chưa có marker -> apply dừng exit 3, bước 3/G1/G2 ngoài marker không được đồng bộ (L1); APPLY.md:37 kỳ vọng exit 1 sai, thực tế 2 (L2). Ghi chú: tên marker khác ART-0003, whitelist git branch rộng, manifest không phải object gây traceback.",
+  "sources": [
+    ".agents/tasks/TASK-0012.json",
+    ".agents/artifacts/ART-0002.md:27-61",
+    ".agents/artifacts/ART-0003.md:26,52-53,59-70,88,98",
+    ".agents/artifacts/ART-0004.md:12-16,24-31",
+    ".agents/artifacts/ART-0007.md",
+    ".agents/artifacts/ART-0009.md",
+    ".agents/artifacts/ART-0010.md",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:29-32,39-46",
+    "drafts/REQ-0001/multi-agent/.agents/workflow.yaml:24",
+    "drafts/REQ-0001/multi-agent/scripts/rules_sync.py:9,20,27,83-87,145-148,207-212,236-253",
+    "drafts/REQ-0001/multi-agent/scripts/test_rules_sync.py:42-45,72,174-182",
+    "drafts/REQ-0001/APPLY.md:25,37-39,45",
+    "drafts/REQ-0001/game-hub/.agents/workflow.yaml:24",
+    "/home/user/tungpt2607/game-hub/CLAUDE.md"
+  ],
+  "created_by": "reviewer"
+}

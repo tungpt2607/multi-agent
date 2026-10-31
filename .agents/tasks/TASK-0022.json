@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0022",
+  "request_id": "REQ-0002",
+  "stage": "design",
+  "agent": "designer",
+  "summary": "Đề xuất >=2 phương án cho REQ-0002 theo ART-0021: cách phân tích lệnh Bash + allowlist cụ thể (G2), cơ chế phiếu push/merge gắn lệnh cụ thể và dùng một lần (G1, R4), chặn mcp__github__* ghi (R3), cưỡng chế pre_gate, commit .agents/ theo bước, và đường áp dụng khi gate chặn agent sửa .claude/CLAUDE.md/workflow.yaml (R1).",
+  "inputs": ["ART-0020", "ART-0021"],
+  "approved_by_decision": "DEC-0049",
+  "outputs": ["ART-0022"],
+  "status": "done"
+}

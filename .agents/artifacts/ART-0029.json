@@ -1,0 +1,30 @@
+{
+  "id": "ART-0029",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0029",
+  "type": "test_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0029.md",
+  "summary": "ĐẠT về code/test, còn 1 điều kiện mở. pytest 270/270 pass. L1 (sort --o=/--outp=/--com=, date --se=, file --comp và rà jq/diff/tail/ls/wc/grep/rg/find) đều deny khi chạy gate nháp trong thư mục tạm. L3, L4, L5 đạt về code. Fail closed, ledger, CLAUDE.md (chỉ 61c61,62) và settings.json (chỉ thêm 2 matcher) vẫn đạt. Mở: L5 điều kiện 2, người dùng phải xác nhận ô bấm thật không bị chặn; ledger cho thấy tool_input ở PostToolUse có khoá answers. Ghi chú thấp: tool MCP ghi ngoài danh sách vẫn dùng vân tay thô; L2 chỉ có biện pháp thủ công; L6-L8 vẫn mở. Có sha256 5 file.",
+  "sources": [
+    "drafts/REQ-0002/.claude/hooks/gate.py:65-107",
+    "drafts/REQ-0002/.claude/hooks/gate.py:628-659",
+    "drafts/REQ-0002/.claude/hooks/gate.py:683-724",
+    "drafts/REQ-0002/.claude/hooks/gate.py:746-800",
+    "drafts/REQ-0002/.claude/hooks/gate.py:833-887",
+    "drafts/REQ-0002/.claude/hooks/gate.py:953-959",
+    "drafts/REQ-0002/tests/test_gate.py:287-371",
+    "drafts/REQ-0002/tests/test_gate.py:500-575",
+    "drafts/REQ-0002/APPLY.md:30-32",
+    "drafts/REQ-0002/APPLY.md:64-79",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:61",
+    ".claude/settings.json",
+    ".claude/hooks/record_answer.py:28",
+    ".agents/ledger/answers.jsonl",
+    ".agents/artifacts/ART-0026.md",
+    ".agents/artifacts/ART-0027.md",
+    ".agents/artifacts/ART-0028.md"
+  ],
+  "created_by": "reviewer"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0059",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0030",
+  "kind": "approve_action",
+  "question": "[DEC-0059] {{MCP create_branch main->agent/REQ-0002}} {{MCP push_files tungpt2607/multi-agent agent/REQ-0002}} {{MCP create_pull_request agent/REQ-0002->main}} Tạo nhánh, đẩy 4 file luật mới, mở PR vào main (chưa merge)?",
+  "context": "risk_report ART-0030: medium, hoàn tác được. 4 file: .claude/hooks/gate.py, .claude/settings.json, CLAUDE.md, tests/test_gate.py; sha256 theo ART-0029, lệch thì dừng.",
+  "options": [
+    {"id": "A", "title": "Đồng ý", "pros": [], "cons": [], "reversible": true},
+    {"id": "B", "title": "Không", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đã qua kiểm tra; merge vẫn cần phiếu riêng."},
+  "risk": "medium", "risk_report": "ART-0030", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-31T00:12:00Z"}
+}

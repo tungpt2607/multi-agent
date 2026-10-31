@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0030",
+  "request_id": "REQ-0002",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá việc 4+5 (ART-0023, cách 5C): Điều phối tạo nhánh agent/REQ-0002 trên GitHub từ main, đẩy đúng nội dung 4 file nháp (sha256 ART-0029) vào vị trí thật: .claude/hooks/gate.py, .claude/settings.json, CLAUDE.md, tests/test_gate.py; xác minh byte bằng git fetch; mở PR vào main. Merge là việc 6, phiếu riêng.",
+  "inputs": ["ART-0024", "ART-0027", "ART-0029"],
+  "approved_by_decision": "DEC-0058",
+  "outputs": ["ART-0030", "PR #2 (merged 189bde2)"],
+  "status": "done"
+}

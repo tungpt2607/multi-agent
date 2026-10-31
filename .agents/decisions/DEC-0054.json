@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0054",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0025",
+  "kind": "approve_stage",
+  "question": "[DEC-0054] Ngân sách REQ-0002 chạm 100% (~360k). Duyệt ART-0025 và tiếp tục thế nào?",
+  "context": "ART-0025 do executor nộp (gate.py mới, settings.json, CLAUDE.md, ~55 test, APPLY.md), chưa chạy test. Còn: reviewer (~40k), guard+PR (~40k vì phải gửi lại nội dung file), merge, đồng bộ (~20k). Điểm chưa chắc: tên tool MCP đọc, vân tay merge không có nhánh đích, có thể chặn nhầm glob.",
+  "options": [
+    {"id": "A", "title": "Duyệt, nâng lên 480k, chạy reviewer", "pros": ["Xong REQ-0002"], "cons": ["+120k"], "reversible": true},
+    {"id": "B", "title": "Duyệt, nâng lên 400k, chỉ chạy reviewer rồi dừng", "pros": ["Biết bản vá có chạy đúng không"], "cons": ["PR/merge để phiên sau"], "reversible": true},
+    {"id": "C", "title": "Dừng tại đây", "pros": ["Không tốn thêm"], "cons": ["Bản nháp chưa kiểm, có thể mất khi container bị thu hồi"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Còn ít bước, đã đi gần hết."},
+  "risk": "medium", "risk_report": "ART-0024", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T23:05:00Z"}
+}

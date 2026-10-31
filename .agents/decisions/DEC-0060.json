@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0060",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0030",
+  "kind": "approve_action",
+  "question": "[DEC-0060] {{MCP merge_pull_request tungpt2607/multi-agent #2}} Merge PR #2 (vá gate) vào main?",
+  "context": "PR #2: 4 file khớp sha256 ART-0029; 270/270 test pass. Rủi ro: L5 có thể khoá ô bấm sau khi áp (đã chấp nhận ở DEC-0058) → revert PR #2. risk_report: ART-0030 (đã nêu rủi ro merge). Ngân sách ~690k/720k.",
+  "options": [
+    {"id": "A", "title": "Đồng ý merge (dùng ART-0030)", "pros": ["Xong REQ-0002"], "cons": ["Rủi ro L5"], "reversible": true},
+    {"id": "B", "title": "Đồng ý, nhưng chạy guard riêng cho merge trước (~15k)", "pros": ["Đúng trình tự chặt"], "cons": ["Vượt ngân sách"], "reversible": true},
+    {"id": "C", "title": "Không, tôi tự merge trên GitHub", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Rủi ro merge đã được guard nêu ở ART-0030; có đường revert."},
+  "risk": "medium", "risk_report": "ART-0030", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-31T00:40:00Z"}
+}

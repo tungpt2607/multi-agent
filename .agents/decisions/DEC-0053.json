@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0053",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0024",
+  "kind": "approve_action",
+  "question": "[DEC-0053] Cho executor làm việc 2: viết bản nháp vá gate vào drafts/REQ-0002/ (gate.py, settings.json, CLAUDE.md, tests/test_gate.py, APPLY.md)?",
+  "context": "risk_report ART-0024: medium. Điều kiện 1-7 (fail closed, không mở quyền, MCP lạ = ghi, CLAUDE.md chỉ 2 thay đổi, test thư mục tạm, sha256 + giữ gate cũ).",
+  "options": [
+    {"id": "A", "title": "Cho phép", "pros": ["Theo kế hoạch"], "cons": ["~50k token"], "reversible": true},
+    {"id": "B", "title": "Không cho phép", "pros": [], "cons": ["Dừng REQ-0002"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Chỉ ghi nháp, hoàn tác được; rủi ro nội dung được reviewer kiểm ở việc 3."},
+  "risk": "medium", "risk_report": "ART-0024", "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T22:50:00Z"}
+}

@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0050",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0022",
+  "kind": "choose_option",
+  "question": "[DEC-0050] Chọn gói thiết kế REQ-0002 (ART-0022), duyệt allowlist, nhãn đồng ý, đường áp dụng bản vá.",
+  "context": "ART-0022 do designer nộp. Gói 1: 1A+2A+3A+4A+commit thủ công+5A. Gói 2: 1A+2C+3C+4B+5C. Gói 3: 1C+2B+3B+4A+5B. Đường áp dụng: designer khuyến nghị 5A; Điều phối khuyến nghị 5C (người dùng dùng điện thoại, đã muốn agent push/merge hộ). Phát hiện: Điều phối tạo được DEC mới có sẵn status answered (DEC-0049).",
+  "options": [
+    {"id": "G1", "title": "Gói 1", "pros": ["Đạt AC1-13", "Phiếu không giả được"], "cons": ["Phiếu đốt cả khi lệnh lỗi"], "reversible": true},
+    {"id": "G2", "title": "Gói 2", "pros": ["Chặt nhất"], "cons": ["Tốn, dễ chặn nhầm"], "reversible": true},
+    {"id": "G3", "title": "Gói 3", "pros": ["Nhanh"], "cons": ["Phiếu giả được"], "reversible": true}
+  ],
+  "recommendation": {"option": "G1 + allowlist như đề xuất + nhãn 'Đồng ý' + 5C", "reason": "Chặt, ít phụ thuộc; 5C hợp với cách người dùng làm việc."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "G1+allowlist+Đồng ý+5C", "note": "Gói 1 (gồm G1: phiếu dùng một lần); allowlist như đề xuất, chấp nhận rủi ro pytest; nhãn 'Đồng ý'; áp dụng 5C.", "answered_at": "2026-10-30T22:30:00Z"}
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ART-0008",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0008",
+  "type": "code",
+  "version": 1,
+  "status": "draft",
+  "content_ref": "drafts/REQ-0001/multi-agent/",
+  "summary": "Tạo drafts/REQ-0001/multi-agent/CLAUDE.md (bản sao + siết bước 3 theo pre_gate, ngoại lệ G1/G2, mục Minh bạch agent bọc marker rules-sync) và CLAUDE.md.patch. Mô tả: .agents/artifacts/ART-0008.md.",
+  "sources": [
+    ".agents/tasks/TASK-0008.json",
+    ".agents/artifacts/ART-0004.md:12",
+    ".agents/artifacts/ART-0003.md:52-53",
+    ".agents/artifacts/ART-0003.md:62-73",
+    ".agents/artifacts/ART-0007.md:12-29",
+    "CLAUDE.md:26-36"
+  ],
+  "created_by": "executor"
+}

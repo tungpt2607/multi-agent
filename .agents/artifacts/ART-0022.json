@@ -1,0 +1,24 @@
+{
+  "id": "ART-0022",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0022",
+  "type": "design",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0022.md",
+  "summary": "5 điểm thiết kế, mỗi điểm 2-3 phương án; 3 gói. Khuyến nghị Gói 1: tokenizer shlex fail closed + allowlist cụ thể (1A), phiếu gắn vân tay lệnh trong ledger + sổ consumed.jsonl do gate ghi (2A), matcher mcp__github__.* với allowlist đọc, còn lại coi là ghi (3A), kiểm risk_report trong executor_approved (4A), commit .agents/ thủ công sau mỗi approve_stage, áp bản vá qua drafts/REQ-0002/ do người dùng tự chép (5A). Phát hiện phụ: Điều phối tạo được DEC mới đã answered (gate.py:146-148) nên chỉ tin ledger. 4 điểm cần chốt: allowlist, đốt phiếu khi lệnh lỗi, nhãn 'Đồng ý', đường áp dụng.",
+  "sources": [
+    ".agents/artifacts/ART-0021.md",
+    ".agents/decisions/DEC-0046.json",
+    ".claude/hooks/gate.py:18-26",
+    ".claude/hooks/gate.py:65-79",
+    ".claude/hooks/gate.py:102-129",
+    ".claude/hooks/gate.py:136-153",
+    ".claude/hooks/gate.py:184-194",
+    ".claude/hooks/record_answer.py:20-30",
+    ".claude/settings.json:5",
+    ".agents/workflow.yaml:15-19",
+    ".agents/ledger/answers.jsonl:1"
+  ],
+  "created_by": "designer"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "TASK-0027",
+  "request_id": "REQ-0002",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro phần sửa lần 2 theo ART-0026 + DEC-0055: L1 chặn tuỳ chọn viết tắt (sort/date/file --...), L3 chặn đọc đệ quy lộ bí mật (grep -r, diff -r, rg -uu...), L4 vân tay MCP/merge gồm PR/nhánh/đường dẫn/nhánh đích, L5 chặn AskUserQuestion có answers điền sẵn; L2 ghi thứ tự áp dụng trong APPLY.md. Chỉ ghi drafts/REQ-0002/.",
+  "inputs": ["ART-0024", "ART-0025", "ART-0026"],
+  "approved_by_decision": "DEC-0055",
+  "attempt": 2,
+  "max_attempts": 2,
+  "outputs": ["ART-0027"],
+  "status": "done"
+}

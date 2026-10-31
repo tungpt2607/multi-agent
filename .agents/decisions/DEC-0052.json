@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0052",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0023",
+  "kind": "approve_stage",
+  "question": "[DEC-0052] Duyệt kế hoạch ART-0023 (7 việc), nâng ngân sách REQ-0002, và cho bước 5/7 Thực thi bắt đầu bằng guard đánh giá việc 2 (~15k)?",
+  "context": "ART-0023 do planner nộp, tổng ~125k; đã dùng ~205k/300k.",
+  "options": [
+    {"id": "A", "title": "Duyệt, nâng lên 360k, chạy guard việc 2", "pros": ["Đủ ngân sách"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Duyệt, giữ 300k (dừng khi chạm 100%)", "pros": [], "cons": ["Có thể dừng giữa việc 5-7"], "reversible": true},
+    {"id": "C", "title": "Làm lại / sửa kế hoạch", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Dừng giữa chừng tốn hơn."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T22:42:00Z"}
+}

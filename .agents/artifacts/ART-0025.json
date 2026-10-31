@@ -1,0 +1,20 @@
+{
+  "id": "ART-0025",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0025",
+  "type": "code",
+  "version": 1,
+  "status": "draft",
+  "content_ref": "drafts/REQ-0002/",
+  "summary": "Nháp vá gate (Gói 1): .claude/hooks/gate.py (fail closed, Bash allowlist, phiếu vân tay một lần, MCP allowlist đọc), .claude/settings.json (+matcher mcp__github__.*), CLAUDE.md (2 thay đổi), tests/test_gate.py, APPLY.md. Chưa chạy pytest (không có shell).",
+  "sources": [
+    ".agents/tasks/TASK-0025.json",
+    ".agents/artifacts/ART-0024.md:19-23",
+    ".agents/artifacts/ART-0022.md:7-75",
+    ".agents/artifacts/ART-0021.md:24-45",
+    ".claude/hooks/gate.py:1-200",
+    ".claude/hooks/record_answer.py:15-31",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:51-63"
+  ],
+  "created_by": "executor"
+}

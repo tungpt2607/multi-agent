@@ -1,0 +1,14 @@
+{
+  "id": "TASK-0029",
+  "request_id": "REQ-0002",
+  "stage": "verification",
+  "agent": "reviewer",
+  "summary": "Kiểm lại lần 2/2: chạy toàn bộ drafts/REQ-0002/tests/test_gate.py, xác nhận L1 (thử sort --o= thật bị chặn), L3, L4, L5 đã vá theo ART-0027, không phá các mục đã đạt ở ART-0026, diff CLAUDE.md/settings.json còn hợp lệ, tính lại sha256.",
+  "inputs": ["ART-0026", "ART-0027", "ART-0028"],
+  "approved_by_decision": "DEC-0057",
+  "attempt": 2,
+  "max_attempts": 2,
+  "outputs": ["ART-0029"],
+  "result": "pass_with_open_condition",
+  "status": "done"
+}

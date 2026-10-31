@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0025",
+  "request_id": "REQ-0002",
+  "stage": "execution",
+  "agent": "executor",
+  "summary": "Việc 2 (ART-0023): viết nháp drafts/REQ-0002/ gồm .claude/hooks/gate.py (Gói 1), .claude/settings.json (thêm matcher mcp__github__.*), CLAUDE.md (2 thay đổi theo ART-0024 đk 5), tests/test_gate.py (AC1-9, AC12), APPLY.md (sha256, giữ gate cũ để quay lại). Điều kiện ART-0024.",
+  "inputs": ["ART-0021", "ART-0022", "ART-0023", "ART-0024"],
+  "approved_by_decision": "DEC-0053",
+  "outputs": ["ART-0025"],
+  "status": "done"
+}

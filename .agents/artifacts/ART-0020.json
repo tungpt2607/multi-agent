@@ -1,0 +1,25 @@
+{
+  "id": "ART-0020",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0020",
+  "type": "spec",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0020.md",
+  "summary": "Đặc tả REQ-0002: allowlist Bash + chặn ghi .agents/.claude/CLAUDE.md, khớp lệnh chính xác, sửa chặn nhầm, phiếu riêng cho mỗi push/merge (merge main được), chặn mcp__github__* ghi, đổi luật, commit .agents/ theo bước, cưỡng chế pre_gate.",
+  "sources": [
+    ".agents/requests/REQ-0002.json",
+    ".agents/tasks/TASK-0020.json",
+    ".agents/decisions/DEC-0045.json",
+    ".agents/decisions/DEC-0046.json",
+    ".agents/decisions/DEC-0040.json",
+    ".agents/decisions/DEC-0041.json",
+    ".claude/hooks/gate.py:18-26",
+    ".claude/hooks/gate.py:184-194",
+    ".claude/hooks/record_answer.py:1-31",
+    ".claude/settings.json:5-9",
+    "CLAUDE.md:61",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:61"
+  ],
+  "created_by": "intake"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "DEC-0044",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "kind": "choose_option",
+  "question": "[DEC-0044] Làm các việc còn lại: thứ tự, cách làm P7, ngân sách.",
+  "context": "Còn: P7 game-hub (cần quyền push game-hub; đường đi: GitHub MCP đẩy CLAUDE.md + .agents/workflow.yaml đã sinh bằng rules_sync trên bản clone, mở PR), P8 reviewer kiểm cả 2 repo thật, REQ-0002. Ngân sách REQ-0001 đã hết (720k).",
+  "options": [
+    {"id": "O1", "title": "Thứ tự P7 → P8 → REQ-0002", "pros": ["P8 kiểm được cả 2 repo một lần"], "cons": [], "reversible": true},
+    {"id": "O2", "title": "Thứ tự P8 (multi-agent) → P7 → REQ-0002", "pros": ["Kiểm main trước"], "cons": ["Phải kiểm game-hub thêm lần nữa"], "reversible": true},
+    {"id": "M1", "title": "P7: mở PR game-hub, Điều phối merge (ngoại lệ như PR #1)", "pros": ["Bạn không phải làm"], "cons": ["Vượt hook"], "reversible": true},
+    {"id": "M2", "title": "P7: mở PR game-hub, bạn tự merge", "pros": ["Bạn xem diff trước"], "cons": [], "reversible": true},
+    {"id": "B1", "title": "Nâng ngân sách REQ-0001 thêm 120k cho P7+P8", "pros": ["Đủ làm"], "cons": ["Tốn thêm"], "reversible": true}
+  ],
+  "recommendation": {"option": "O1+M1+B1", "reason": "Kiểm một lần cho cả 2 repo; giống cách đã làm với PR #1."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose_modified", "choice": "M1+B1", "note": "Thứ tự: 'la req 2 trước đã' → REQ-0002 trước, sau đó P7 (Điều phối merge) và P8; REQ-0001 thêm 120k.", "answered_at": "2026-10-30T21:40:00Z"}
+}

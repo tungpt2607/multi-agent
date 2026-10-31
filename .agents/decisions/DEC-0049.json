@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0049",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0022",
+  "kind": "approve_stage",
+  "question": "[DEC-0049] Tiếp DEC-0048 (đã khoá ở ask_more): duyệt ART-0021 và chạy bước 3/7 Thiết kế (designer)?",
+  "context": "Người dùng đọc ART-0021 rồi trả lời trong chat 'chạy đi'. G1 chưa trả lời riêng: designer tạm theo G1 (mỗi phiếu một lần), hỏi lại ở bước chọn phương án.",
+  "options": [
+    {"id": "A", "title": "Duyệt và chạy designer", "pros": [], "cons": [], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Theo DEC-0048."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "Trả lời trong chat (không qua ô bấm): 'chạy đi'.", "answered_at": "2026-10-30T22:15:00Z"}
+}

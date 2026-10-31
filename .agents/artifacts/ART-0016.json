@@ -1,0 +1,15 @@
+{
+  "id": "ART-0016",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0016",
+  "type": "code",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0016.md",
+  "summary": "Sửa L3: APPLY.md P7 thêm git add CLAUDE.md + git commit sau git apply CLAUDE.md.patch, trước rules_sync.py apply; chỉnh chú thích diff --stat.",
+  "sources": [
+    ".agents/artifacts/ART-0015.md",
+    "drafts/REQ-0001/APPLY.md:39-46"
+  ],
+  "created_by": "executor"
+}

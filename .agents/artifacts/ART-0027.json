@@ -1,0 +1,16 @@
+{
+  "id": "ART-0027",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0027",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0027.md",
+  "summary": "risk_report medium. Sửa lần 2 (L1,L3,L4,L5,L2) chỉ ghi nháp, hoàn tác được, không mở quyền mới, đều thu hẹp quyền. Điều kiện chính: whitelist tuỳ chọn tường minh (L1), chặn cả cờ gộp -rn (L3), tool ghi thiếu trường vân tay thì deny (L4), L5 chỉ deny khi answers/annotations không rỗng và phải xác nhận mẫu tool_input thật để ô bấm hợp lệ vẫn chạy, giữ fail closed, giữ điều kiện ART-0024.",
+  "sources": [
+    ".agents/tasks/TASK-0027.json",
+    ".agents/artifacts/ART-0026.md:19-36",
+    ".agents/artifacts/ART-0024.md"
+  ],
+  "created_by": "guard"
+}

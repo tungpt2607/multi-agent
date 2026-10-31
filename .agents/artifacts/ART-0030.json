@@ -1,0 +1,17 @@
+{
+  "id": "ART-0030",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0030",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0030.md",
+  "summary": "Rủi ro medium. Tạo nhánh agent/REQ-0002 + push đúng 4 file + mở PR trên GitHub; hoàn tác được (đóng PR, xoá nhánh), không merge. Điều kiện: đúng 4 file, sha256 khớp ART-0029 trước và sau push (lệch thì dừng, không mở PR), không merge, PR nêu điều kiện mở L5 và thứ tự áp 2b.",
+  "sources": [
+    ".agents/tasks/TASK-0030.json",
+    ".agents/artifacts/ART-0029.md:3",
+    ".agents/artifacts/ART-0029.md:33-40",
+    "drafts/REQ-0002/APPLY.md:28-32"
+  ],
+  "created_by": "guard"
+}

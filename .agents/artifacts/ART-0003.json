@@ -1,0 +1,27 @@
+{
+  "id": "ART-0003",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0003",
+  "type": "design",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0003.md",
+  "summary": "Phương án cho 4 điểm: (1) gate trước bước: 1A pre_gate từng stage + quy tắc Điều phối [KN], 1B khai báo cấp workflow, 1C thêm hook stage_gate.py; (2) Minh bạch agent: 2A quy tắc + 1 dòng trạng thái [KN], 2B khối nhiều dòng; (3) đồng bộ: phạm vi S1 [KN]/S2, 3A script rules_sync.py check/apply do người dùng chạy [KN], 3B + lock + CI repo con, 3C CI xuyên repo tự mở PR; (4) áp dụng: 4A executor viết drafts/REQ-0001 người dùng tự áp [KN], 4B tạm nới hook, 4C người dùng tự sửa. Phát hiện: mode draft/branch khác nhau nên AC-5 cần so sau chuẩn hoá dòng mode.",
+  "sources": [
+    ".claude/hooks/gate.py:18-26",
+    ".claude/hooks/gate.py:65-79",
+    ".claude/hooks/gate.py:85",
+    ".claude/hooks/gate.py:99-129",
+    ".claude/hooks/gate.py:136-138",
+    ".claude/settings.json:3-13",
+    ".agents/workflow.yaml:2-26",
+    ".agents/schemas/task.schema.json:66-76",
+    ".agents/tasks/TASK-0003.json:8",
+    ".agents/decisions/DEC-0008.json:14",
+    ".agents/artifacts/ART-0001.md:12-29",
+    ".agents/artifacts/ART-0002.md:5-73",
+    "CLAUDE.md:26-60",
+    ".agents/requests/REQ-0002.json:5"
+  ],
+  "created_by": "designer"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "ART-0019",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0019",
+  "type": "report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0019.md",
+  "summary": "Báo cáo bàn giao REQ-0001: AC-1, AC-4, AC-7 đạt trên bản nháp; AC-2/3/5/6/8 chờ P8. Kiểm tra: lần 1 không đạt (L1, L2), lần 2 không đạt (L3), lần 3 đạt (ART-0017, mô phỏng). Người dùng: push tuỳ chọn commit 8d45dee, P6, P7 theo APPLY.md, rồi yêu cầu P8. Còn mở: P8, REQ-0002, pre_gate chưa được hook cưỡng chế.",
+  "sources": [
+    ".agents/tasks/TASK-0019.json",
+    ".agents/artifacts/ART-0001.md",
+    ".agents/artifacts/ART-0004.md",
+    ".agents/artifacts/ART-0012.json",
+    ".agents/artifacts/ART-0015.json",
+    ".agents/artifacts/ART-0017.md",
+    "drafts/REQ-0001/APPLY.md:6-58",
+    ".git/logs/HEAD"
+  ],
+  "created_by": "reporter"
+}

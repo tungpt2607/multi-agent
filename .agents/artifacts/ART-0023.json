@@ -1,0 +1,18 @@
+{
+  "id": "ART-0023",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0023",
+  "type": "plan",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0023.md",
+  "summary": "7 việc: guard+phiếu -> executor viết nháp drafts/REQ-0002/ (gate.py, settings.json, đoạn CLAUDE.md, tests, APPLY.md) -> reviewer pytest GATE_PATH -> guard+phiếu mở PR (so sha256) -> phiếu merge riêng -> đồng bộ local, pytest lại, kiểm AC11/13. Việc 5,6 có tác động ra ngoài (approve_action riêng). Cảnh báo bootstrapping và nhánh local agent/REQ-0001 lệch remote.",
+  "sources": [
+    ".agents/artifacts/ART-0021.md",
+    ".agents/artifacts/ART-0022.md",
+    ".agents/decisions/DEC-0050.json",
+    ".agents/workflow.yaml:19",
+    ".claude/hooks/gate.py:136-138"
+  ],
+  "created_by": "planner"
+}

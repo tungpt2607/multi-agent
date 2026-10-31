@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0048",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0021",
+  "kind": "approve_stage",
+  "question": "[DEC-0048] Duyệt ART-0021 (phân tích REQ-0002), xác nhận giả định G1 và cho bước 3/7 Thiết kế (designer, ~50k) chạy?",
+  "context": "ART-0021: BR1-10, 5 user story, AC1-AC13. G1: phiếu push/merge đánh dấu đã dùng sau 1 lần thành công. G2: danh sách allowlist cụ thể người dùng duyệt ở bước thiết kế.",
+  "options": [
+    {"id": "A", "title": "Duyệt, đồng ý G1, chạy designer", "pros": ["Đúng trình tự"], "cons": ["~50k token"], "reversible": true},
+    {"id": "B", "title": "Duyệt, chưa chạy designer", "pros": [], "cons": [], "reversible": true},
+    {"id": "C", "title": "Làm lại / sửa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Tiêu chí đủ, kiểm được tự động."},
+  "risk": "low", "risk_report": null, "status": "clarifying",
+  "answer": {"action": "ask_more", "choice": null, "note": "Người dùng: 'chi tiết để tôi đọc' / 'để tôi đọc đã rồi hỏi lại'. Chưa duyệt, chưa chạy designer.", "answered_at": "2026-10-30T22:08:00Z"}
+}

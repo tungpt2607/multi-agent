@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0020",
+  "request_id": "REQ-0002",
+  "stage": "intake",
+  "agent": "intake",
+  "summary": "Chuẩn hoá REQ-0002: vá lỗ hổng gate.py, luật 'có phiếu người dùng đồng ý thì agent được làm (kể cả push/merge)', cưỡng chế pre_gate bằng hook, commit .agents/ theo bước. Liệt kê điểm chưa rõ.",
+  "inputs": [],
+  "approved_by_decision": "DEC-0045",
+  "outputs": ["ART-0020"],
+  "status": "done"
+}

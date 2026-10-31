@@ -1,0 +1,17 @@
+{
+  "id": "ART-0013",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0013",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0013.md",
+  "summary": "Rủi ro low, hoàn tác được (chỉ ghi drafts/REQ-0001/). Đưa bước 3 + G1/G2 vào marker không làm yếu luật nếu giữ nguyên chữ siết, bước 3 chỉ là con trỏ, không thêm ngoại lệ. APPLY.md P7 git apply CLAUDE.md.patch trước apply: chỉ khi CLAUDE.md game-hub chưa lệch. N4/N5 chỉ siết. Điều kiện C1-C5: ghi trong drafts, P5 kiểm diff + grep từ cấm + unittest, không áp patch.",
+  "sources": [
+    ".agents/tasks/TASK-0013.json",
+    ".agents/artifacts/ART-0012.md:53-70",
+    ".agents/artifacts/ART-0007.md:11-12,28-29",
+    ".agents/artifacts/ART-0009.md:12,25"
+  ],
+  "created_by": "guard"
+}

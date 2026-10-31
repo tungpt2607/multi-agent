@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0045",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0020",
+  "kind": "approve_stage",
+  "question": "[DEC-0045] REQ-0002 bước 1/7 — Tiếp nhận: cho agent intake chuẩn hoá yêu cầu? Ngân sách REQ-0002?",
+  "context": "REQ-0002: vá lỗ hổng gate.py (ghi .agents/ qua Bash/python, mẫu chặn khớp chuỗi dễ lách, chặn nhầm grep/'>'/merge-base/'deploy'), luật 'có phiếu người dùng đồng ý thì agent được làm (kể cả push/merge)', cưỡng chế pre_gate bằng hook, commit .agents/ theo bước. intake ~25k token. Ngân sách mặc định development theo workflow.yaml: 300k.",
+  "options": [
+    {"id": "A", "title": "Chạy intake, ngân sách 300k", "pros": ["Đúng workflow.yaml"], "cons": [], "reversible": true},
+    {"id": "B", "title": "Chạy intake, ngân sách 200k", "pros": ["Tiết kiệm"], "cons": ["Dễ phải nâng giữa chừng"], "reversible": true},
+    {"id": "C", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "REQ-0001 cho thấy mỗi bước tốn ~20-70k; 300k là mức workflow."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T21:45:00Z"}
+}

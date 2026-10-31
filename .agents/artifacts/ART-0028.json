@@ -1,0 +1,17 @@
+{
+  "id": "ART-0028",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0028",
+  "type": "code",
+  "version": 3,
+  "status": "draft",
+  "content_ref": "drafts/REQ-0002/",
+  "summary": "Sửa lần 2: gate.py (OPTS whitelist tuỳ chọn theo lệnh L1, chặn đọc đệ quy L3, vân tay MCP/MERGE L4, check_ask L5), settings.json (+PreToolUse AskUserQuestion), CLAUDE.md (vân tay), tests/test_gate.py (test L1/L3/L4/L5), APPLY.md (L2 thứ tự áp, vân tay mới, hash chờ reviewer). Chưa chạy pytest (executor không có shell).",
+  "sources": [
+    ".agents/tasks/TASK-0028.json",
+    ".agents/artifacts/ART-0026.md:19-36",
+    ".agents/artifacts/ART-0027.md:5-27",
+    ".agents/artifacts/ART-0024.md"
+  ],
+  "created_by": "executor"
+}

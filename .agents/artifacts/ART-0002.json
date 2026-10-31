@@ -1,0 +1,18 @@
+{
+  "id": "ART-0002",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0002",
+  "type": "spec",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0002.md",
+  "summary": "Quy tắc nghiệp vụ BR-1..9, 4 user story, 8 tiêu chí nghiệm thu Given/When/Then kèm cách kiểm tra cho REQ-0001 (gate trước mỗi bước, minh bạch agent, đồng bộ luật qua PR, kiểm tra lệch bản). Giả định A1-A4 chuyển designer chốt.",
+  "sources": [
+    ".agents/artifacts/ART-0001.md:12-41",
+    ".agents/workflow.yaml:2-26",
+    ".agents/workflow.yaml:43-47",
+    "CLAUDE.md:Vòng điều phối",
+    ".agents/tasks/TASK-0002.json:6-8"
+  ],
+  "created_by": "analyst"
+}
