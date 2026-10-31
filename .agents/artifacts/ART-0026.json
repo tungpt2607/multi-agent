@@ -1,0 +1,25 @@
+{
+  "id": "ART-0026",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0026",
+  "type": "test_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0026.md",
+  "summary": "KHÔNG ĐẠT. pytest 163/163 pass; ledger khớp; diff CLAUDE.md và settings.json đúng phạm vi. Lỗ hổng nghiêm trọng L1: sort nhận tuỳ chọn viết tắt --o=/--outp=/--com= lọt qua gate.py:646, ghi được ledger/.claude. Ngoài ra L2 git switch về nhánh có gate cũ, L3 grep -r đọc bí mật, L4 vân tay MCP/MERGE thô, L5 answers điền sẵn (chưa chắc), L6-L8 thấp/đã chấp nhận. Có sha256 5 file.",
+  "sources": [
+    "drafts/REQ-0002/tests/test_gate.py:24-38",
+    "drafts/REQ-0002/.claude/hooks/gate.py:218-219",
+    "drafts/REQ-0002/.claude/hooks/gate.py:240-309",
+    "drafts/REQ-0002/.claude/hooks/gate.py:452",
+    "drafts/REQ-0002/.claude/hooks/gate.py:569-573",
+    "drafts/REQ-0002/.claude/hooks/gate.py:646",
+    "drafts/REQ-0002/.claude/hooks/gate.py:747-770",
+    "drafts/REQ-0002/APPLY.md",
+    ".agents/ledger/answers.jsonl",
+    ".agents/artifacts/ART-0021.md:24-45",
+    ".agents/artifacts/ART-0024.md",
+    "drafts/REQ-0001/multi-agent/CLAUDE.md:61"
+  ],
+  "created_by": "reviewer"
+}

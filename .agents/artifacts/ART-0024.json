@@ -1,0 +1,18 @@
+{
+  "id": "ART-0024",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0024",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0024.md",
+  "summary": "Rủi ro medium: ghi nháp drafts/REQ-0002/ an toàn, hoàn tác được. Điều kiện: gate mới phải fail closed (gate cũ fail open ở gate.py:166-168), không mở quyền ghi .claude/, phiếu push/MCP gắn vân tay một lần, tool MCP lạ coi là ghi, CLAUDE.md chỉ đổi 2 chỗ đã duyệt.",
+  "sources": [
+    ".agents/tasks/TASK-0024.json",
+    ".agents/artifacts/ART-0023.md:10-24",
+    ".agents/artifacts/ART-0022.md:25-54",
+    ".claude/hooks/gate.py:104-142",
+    ".claude/hooks/gate.py:166-168"
+  ],
+  "created_by": "guard"
+}
