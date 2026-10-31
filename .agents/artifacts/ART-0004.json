@@ -1,0 +1,17 @@
+{
+  "id": "ART-0004",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0004",
+  "type": "plan",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0004.md",
+  "summary": "Kế hoạch Gói A gồm 8 việc: P1-P4 executor viết bản nháp trong drafts/REQ-0001 (workflow.yaml, CLAUDE.md, scripts rules_sync, game-hub + APPLY.md), P5 reviewer kiểm tra nháp, P6-P7 người dùng tự áp dụng (multi-agent, game-hub qua PR), P8 reviewer kiểm tra trên repo thật. Ánh xạ AC-1..AC-8, ước lượng ~47k token.",
+  "sources": [
+    ".agents/artifacts/ART-0002.md:27-61",
+    ".agents/artifacts/ART-0003.md:16-160",
+    ".agents/tasks/TASK-0004.json:6",
+    "CLAUDE.md:Bước Thực thi"
+  ],
+  "created_by": "planner"
+}

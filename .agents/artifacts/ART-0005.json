@@ -1,0 +1,18 @@
+{
+  "id": "ART-0005",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0005",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0005.md",
+  "summary": "Rủi ro LOW cho P1: ghi 2 file nháp trong drafts/REQ-0001/, hoàn tác được, không lấn REQ-0002. Lưu ý lệch đường dẫn giữa ART-0004 và Task.",
+  "sources": [
+    ".agents/tasks/TASK-0005.json",
+    ".agents/artifacts/ART-0004.md:11",
+    ".agents/workflow.yaml:19",
+    ".claude/hooks/gate.py:85",
+    ".claude/hooks/gate.py:124-138"
+  ],
+  "created_by": "guard"
+}

@@ -1,0 +1,19 @@
+{
+  "id": "ART-0007",
+  "request_id": "REQ-0001",
+  "task_id": "TASK-0007",
+  "type": "risk_report",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0007.md",
+  "summary": "Rủi ro LOW cho P2: ghi 2 file nháp CLAUDE.md trong drafts/REQ-0001/multi-agent/, hoàn tác được. Điều kiện: chỉ siết luật, giữ nguyên tắc bất biến, G1/G2 có giới hạn, không lấn REQ-0002. File chưa tồn tại lúc đánh giá, P5 kiểm lại bằng diff.",
+  "sources": [
+    ".agents/tasks/TASK-0007.json",
+    ".agents/artifacts/ART-0004.md:12",
+    ".agents/artifacts/ART-0003.md:52-53",
+    ".agents/artifacts/ART-0003.md:62-73",
+    ".claude/hooks/gate.py:127-128",
+    ".claude/hooks/gate.py:136"
+  ],
+  "created_by": "guard"
+}
