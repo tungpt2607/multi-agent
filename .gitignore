@@ -1,2 +1,7 @@
 .agents/state/tool_log.jsonl
 __pycache__/
+
+# Multi-agent: trạng thái phiên và sổ câu trả lời gốc không lên repo (requests/tasks/decisions/artifacts của repo này vẫn theo dõi)
+.agents/state/
+.agents/ledger/*
+!.agents/ledger/.gitkeep
