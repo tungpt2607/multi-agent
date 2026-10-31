@@ -1,0 +1,16 @@
+{
+  "id": "DEC-0047",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0020",
+  "kind": "approve_stage",
+  "question": "[DEC-0047] Duyệt bước Tiếp nhận REQ-0002 (ART-0020) và cho bước 2/7 Phân tích (analyst, ~30k token) chạy?",
+  "context": "ART-0020 do intake nộp: phạm vi theo DEC-0046, 11 tiêu chí nghiệm thu, rủi ro medium.",
+  "options": [
+    {"id": "A", "title": "Duyệt ART-0020 và chạy analyst", "pros": ["Đúng trình tự"], "cons": ["~30k token"], "reversible": true},
+    {"id": "B", "title": "Duyệt, chưa chạy analyst", "pros": [], "cons": [], "reversible": true},
+    {"id": "C", "title": "Làm lại / sửa ART-0020", "pros": [], "cons": ["Thêm token"], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Đặc tả khớp DEC-0046."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T22:00:00Z"}
+}

@@ -1,0 +1,15 @@
+{
+  "id": "DEC-0051",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0022",
+  "kind": "approve_stage",
+  "question": "[DEC-0051] Bắt đầu bước 4/7 — Lập kế hoạch, agent planner chia Gói 1 + 5C thành việc nhỏ (~30k token)?",
+  "context": "Theo DEC-0050.",
+  "options": [
+    {"id": "A", "title": "Đồng ý chạy planner", "pros": [], "cons": ["~30k"], "reversible": true},
+    {"id": "B", "title": "Chưa", "pros": [], "cons": [], "reversible": true}
+  ],
+  "recommendation": {"option": "A", "reason": "Thiết kế đã chốt."},
+  "risk": "low", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "A", "note": "", "answered_at": "2026-10-30T22:33:00Z"}
+}

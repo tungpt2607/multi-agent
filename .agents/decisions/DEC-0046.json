@@ -1,0 +1,17 @@
+{
+  "id": "DEC-0046",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0020",
+  "kind": "clarify",
+  "question": "[DEC-0046] Chốt 4 điểm chưa rõ của REQ-0002 (phạm vi phiếu push/merge, merge main, đường GitHub MCP, chặn ghi .agents/ qua Bash).",
+  "context": "Do intake đề xuất. Q1 phạm vi phiếu: A mỗi lần push/merge một phiếu approve_action + risk_report / B một phiếu cả REQ / C chỉ push agent/*. Q2 merge main: intake khuyến nghị A (không merge); Điều phối đổi khuyến nghị sang B (merge được với phiếu riêng) theo DEC-0040. Q3 GitHub MCP: A gate chặn cả mcp__github__* ghi, cần phiếu / B cấm MCP ghi / C để sau. Q4 Bash: A allowlist + chặn tham chiếu ghi .agents/.claude/CLAUDE.md / B thêm mẫu denylist / C cấm Điều phối ghi .agents/ bằng Bash. Đã rõ: commit .agents/ theo bước; hook cưỡng chế pre_gate; stop-hook ngoài repo người dùng tự xử lý.",
+  "options": [
+    {"id": "Q1A", "title": "Mỗi lần push/merge một phiếu riêng", "pros": ["Chặt"], "cons": ["Nhiều phiếu"], "reversible": true},
+    {"id": "Q2B", "title": "Merge main được nếu có phiếu riêng", "pros": ["Đúng DEC-0040"], "cons": ["Rủi ro cao hơn"], "reversible": true},
+    {"id": "Q3A", "title": "Gate chặn cả GitHub MCP ghi", "pros": ["Một cổng duy nhất"], "cons": [], "reversible": true},
+    {"id": "Q4A", "title": "Bash allowlist", "pros": ["Khó lách"], "cons": ["Phải bảo trì"], "reversible": true}
+  ],
+  "recommendation": {"option": "Q1A+Q2B+Q3A+Q4A", "reason": "Khớp 'có phiếu đồng ý thì được làm', mọi đường ghi đều qua cổng."},
+  "risk": "medium", "risk_report": null, "status": "answered",
+  "answer": {"action": "choose", "choice": "Q1A+Q2B+Q3A+Q4A", "note": "Q1 mỗi lần push/merge một phiếu; Q2 merge main được nếu có phiếu riêng; Q3 gate chặn cả GitHub MCP ghi; Q4 Bash allowlist.", "answered_at": "2026-10-30T21:52:00Z"}
+}
