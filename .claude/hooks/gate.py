@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cổng duyệt + Guard lớp 1 (bản vá REQ-0002, Gói 1): FAIL CLOSED.
+"""Cổng duyệt + Guard lớp 1 (bản vá REQ-0002, Gói 1; mở rộng REQ-0004): FAIL CLOSED.
 
 Chạy như hook PreToolUse. Đọc JSON từ stdin; in quyết định deny ra stdout.
 Không in gì (exit 0) = cho qua (luồng quyền thường của Claude Code vẫn áp dụng).
@@ -8,6 +8,9 @@ Mọi lỗi (JSON hỏng, ngoại lệ, shlex lỗi, cú pháp lạ) => deny.
 Bash: allowlist theo token (không denylist regex). push/merge/MCP ghi: cần phiếu
 approve_action gắn "vân tay" do gate tự tính từ lệnh, bằng chứng chỉ lấy từ ledger
 (do record_answer.py ghi), mỗi phiếu dùng một lần (ledger/consumed.jsonl).
+
+REQ-0004: thêm allowlist npm/pnpm CỐ ĐỊNH (PKG_ALLOW, khớp toàn bộ argv, không đối số thêm,
+phải đứng một mình trong lệnh, bị cấm khi có .npmrc) và cấm executor ghi .gitignore ở gốc repo.
 """
 import fnmatch
 import json
@@ -40,6 +43,16 @@ ALLOW = {"ls", "pwd", "cat", "head", "tail", "wc", "grep", "rg", "find", "stat",
          "git", "pytest", "python3"}
 BANNED = {"eval", "exec", "source", ".", "bash", "sh", "zsh", "dash", "sudo", "xargs", "env",
           "printenv", "nohup", "command", "builtin", "time", "timeout", "nice"}
+# REQ-0004: npm/pnpm chỉ đúng các argv này (so khớp toàn bộ, không tiền tố, không đối số thêm).
+# Cố ý KHÔNG có: npx, node, yarn, corepack, install/i/ci/add/exec/dlx/x, run <tên khác>, npm t,
+# pnpm run <x>, pnpm build:web, cờ --, --filter, -w, -r, --prefix.
+PKG_ALLOW = {
+    ("pnpm", "test"), ("pnpm", "lint"), ("pnpm", "typecheck"), ("pnpm", "build"),
+    ("npm", "test"), ("npm", "run", "lint"), ("npm", "run", "typecheck"),
+    ("npm", "run", "build"), ("npm", "run", "build:web"),
+}
+PKG_CMDS = ("npm", "pnpm")
+PKG_NPMRC_GLOBS = ("apps/*/.npmrc", "packages/*/.npmrc")
 NO_PATH_CHECK = {"echo", "printf", "true", "date", "pwd"}  # không đọc file theo đối số
 GIT_READ = {"status", "diff", "log", "show", "rev-parse", "merge-base", "ls-files", "blame"}
 SECRET = re.compile(r"\.env|id_rsa|id_ed25519|id_ecdsa|\.pem\b|\.netrc|\.ssh\b|\.aws\b", re.I)
@@ -213,6 +226,7 @@ def risk_report_ok(root, dec):
 
 # ---------------------------------------------------------------- ghi file (giữ nguyên luật cũ)
 EXECUTOR_PROTECTED = (".agents/", ".claude/", ".github/", ".git/")
+EXECUTOR_PROTECTED_FILES = ("CLAUDE.md", ".gitignore")  # REQ-0004: thêm .gitignore (chỉ ở gốc repo)
 
 
 def executor_approved(root, rel):
@@ -241,11 +255,14 @@ def executor_approved(root, rel):
         return "request_id của task không hợp lệ"
     if dec.get("request_id") != req:
         return f"{dec_id} thuộc request khác"
+    if rel in EXECUTOR_PROTECTED_FILES and rel != "CLAUDE.md":
+        # .gitignore ở gốc repo: mọi chế độ đều cấm (bản nháp drafts/<REQ>/.../.gitignore không dính vì rel khác)
+        return "Thực thi không được ghi .gitignore ở gốc repo"
     if write_mode(root) == "branch":
         if current_branch(root) != f"agent/{req}":
             return f"chỉ được ghi code khi đang ở nhánh agent/{req} (Điều phối tạo nhánh sau khi bạn duyệt)"
-        if rel.startswith(EXECUTOR_PROTECTED) or rel == "CLAUDE.md":
-            return "Thực thi không được ghi vào .agents/, .claude/, .github/, CLAUDE.md"
+        if rel.startswith(EXECUTOR_PROTECTED) or rel in EXECUTOR_PROTECTED_FILES:
+            return "Thực thi không được ghi vào .agents/, .claude/, .github/, CLAUDE.md, .gitignore (gốc)"
         return None
     if not rel.startswith(f"drafts/{req}/"):
         return f"chế độ nháp: chỉ được ghi trong drafts/{req}/"
@@ -680,6 +697,30 @@ def check_pytest(args, ctx):
         i += 1
 
 
+def has_npmrc(ctx):
+    """REQ-0004: có .npmrc ở gốc dự án, thư mục đang chạy, hoặc apps/*, packages/* -> True. Lỗi đọc = True (fail closed)."""
+    try:
+        root = ctx["root"]
+        for d in (root, Path(ctx["base"])):
+            if os.path.lexists(d / ".npmrc"):
+                return True
+        return any(True for pat in PKG_NPMRC_GLOBS for _ in root.glob(pat))
+    except Exception:
+        return True
+
+
+def check_pkg(seg, ctx):
+    """REQ-0004: npm/pnpm chỉ đúng argv trong PKG_ALLOW; chỉ Điều phối/reviewer; cấm khi có .npmrc."""
+    if ctx["agent"] not in (MAIN, "reviewer"):
+        raise BashDeny("agent này không được chạy npm/pnpm")
+    if tuple(seg) not in PKG_ALLOW:
+        raise BashDeny(f"'{' '.join(seg)}' không nằm trong danh sách npm/pnpm cố định "
+                       "(không đối số thêm; cấm npx/node/yarn/install/ci/exec/dlx/run tuỳ ý)")
+    if has_npmrc(ctx):
+        raise BashDeny("repo có .npmrc (có thể đổi script-shell/registry); npm/pnpm bị chặn")
+    ctx["pkg"] = True
+
+
 def parse_opts(cmd, args):
     """Kiểm tuỳ chọn theo whitelist OPTS[cmd]. Trả (chỉ số đối số vị trí, chỉ số giá trị tuỳ chọn, tên tuỳ chọn đã dùng)."""
     short, shortval, long = OPTS[cmd]
@@ -749,6 +790,9 @@ def check_segment(seg, ctx):
         raise BashDeny("gán biến đầu lệnh (X=y lệnh) bị chặn")
     if cmd in BANNED:
         raise BashDeny(f"'{cmd}' bị chặn (chạy mã tuỳ ý / leo quyền / đọc môi trường)")
+    if cmd in PKG_CMDS:
+        check_pkg(seg, ctx)
+        return None
     if "/" in cmd or cmd not in ALLOW:
         raise BashDeny(f"lệnh '{cmd}' không nằm trong danh sách cho phép")
     if cmd == "git":
@@ -804,7 +848,7 @@ def check_bash(ctx, cmd):
     tickets = []
     try:
         toks = tokenize(scan(cmd))
-        segs, any_seg = [[]], False
+        segs, any_seg, nseg = [[]], False, 0
         for t in toks:
             if t in (";", "&&", "||", "|"):
                 segs.append([])
@@ -815,11 +859,14 @@ def check_bash(ctx, cmd):
             if not seg:
                 continue
             any_seg = True
+            nseg += 1
             fp = check_segment(seg, ctx)
             if fp:
                 tickets.append(fp)
         if not any_seg:
             raise BashDeny("lệnh rỗng")
+        if ctx.get("pkg") and nseg > 1:
+            raise BashDeny("npm/pnpm phải đứng một mình (không ghép ; && || | hay xuống dòng với lệnh khác)")
         if len(tickets) > 1:
             raise BashDeny("mỗi lệnh Bash chỉ được chứa một push/merge (mỗi hành động một phiếu)")
     except BashDeny as e:
