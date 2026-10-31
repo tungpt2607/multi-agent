@@ -1,0 +1,14 @@
+{
+  "id": "TASK-0026",
+  "request_id": "REQ-0002",
+  "stage": "verification",
+  "agent": "reviewer",
+  "summary": "Việc 3 (ART-0023): đọc tests/test_gate.py rồi chạy pytest với gate nháp drafts/REQ-0002/.claude/hooks/gate.py, đối chiếu AC (ART-0021), điều kiện guard (ART-0024), định dạng ledger thật, tính sha256 các file nháp cho APPLY.md.",
+  "inputs": ["ART-0021", "ART-0022", "ART-0024", "ART-0025"],
+  "approved_by_decision": "DEC-0054",
+  "attempt": 1,
+  "max_attempts": 2,
+  "outputs": ["ART-0026"],
+  "result": "fail",
+  "status": "done"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0021",
+  "request_id": "REQ-0002",
+  "stage": "analysis",
+  "agent": "analyst",
+  "summary": "Từ đặc tả ART-0020: viết quy tắc, user story, tiêu chí nghiệm thu kiểm chứng được cho vá gate.py + luật có phiếu đồng ý thì được push/merge + cưỡng chế pre_gate.",
+  "inputs": ["ART-0020"],
+  "approved_by_decision": "DEC-0047",
+  "outputs": ["ART-0021"],
+  "status": "done"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0024",
+  "request_id": "REQ-0002",
+  "stage": "execution",
+  "agent": "guard",
+  "summary": "Guard đánh giá rủi ro việc 2 (ART-0023): executor viết nháp drafts/REQ-0002/ gồm gate.py mới (Gói 1), settings.json thêm matcher mcp__github__.*, đoạn sửa CLAUDE.md (bỏ 'Không push, không merge', luật phiếu, commit .agents/ sau mỗi approve_stage), tests/test_gate.py, APPLY.md kèm sha256. Chỉ ghi trong drafts/REQ-0002/.",
+  "inputs": ["ART-0021", "ART-0022", "ART-0023"],
+  "approved_by_decision": "DEC-0052",
+  "outputs": ["ART-0024"],
+  "status": "done"
+}

@@ -1,0 +1,10 @@
+{
+  "id": "TASK-0032",
+  "request_id": "REQ-0002",
+  "stage": "delivery",
+  "agent": "orchestrator",
+  "summary": "Đẩy sổ .agents/ (artifacts, decisions, tasks, requests, state/active_task.json) + drafts/REQ-0002/APPLY.md lên nhánh agent/REQ-0002-records, trừ ledger, tool_log, drafts/REQ-0002/.claude/ và bản sao trùng; so sha256; mở PR vào main. Merge phiếu riêng.",
+  "inputs": ["ART-0031"],
+  "approved_by_decision": "DEC-0063",
+  "status": "running"
+}

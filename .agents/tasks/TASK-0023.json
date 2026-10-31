@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0023",
+  "request_id": "REQ-0002",
+  "stage": "planning",
+  "agent": "planner",
+  "summary": "Chia Gói 1 (DEC-0050: 1A shlex fail closed + allowlist đã duyệt; 2A phiếu {{PUSH ...}} nhãn 'Đồng ý' + consumed.jsonl; 3A matcher mcp__github__.* chỉ cho tool đọc; 4A kiểm risk_report; commit .agents/ thủ công sau mỗi approve_stage; áp dụng 5C: nháp drafts/REQ-0002/ + reviewer pytest + PR chứa đúng file nháp, có phiếu) thành việc nhỏ có thứ tự, phụ thuộc, ước lượng.",
+  "inputs": ["ART-0021", "ART-0022"],
+  "approved_by_decision": "DEC-0051",
+  "outputs": ["ART-0023"],
+  "status": "done"
+}

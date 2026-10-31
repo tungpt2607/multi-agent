@@ -1,0 +1,11 @@
+{
+  "id": "TASK-0031",
+  "request_id": "REQ-0002",
+  "stage": "delivery",
+  "agent": "guard",
+  "summary": "Guard đánh giá việc đưa sổ lên main (DEC-0062): ~98 file .agents/artifacts, .agents/ledger, .agents/decisions, tasks, requests, state/active_task.json, drafts/REQ-0002/ (trừ bản sao gate.py, test_gate.py) qua GitHub MCP: tạo nhánh agent/REQ-0002-records từ main, push_files theo đợt, so sha256, PR vào main; merge phiếu riêng.",
+  "inputs": ["ART-0030"],
+  "approved_by_decision": "DEC-0062",
+  "outputs": ["ART-0031"],
+  "status": "done"
+}
