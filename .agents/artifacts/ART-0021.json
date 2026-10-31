@@ -1,0 +1,21 @@
+{
+  "id": "ART-0021",
+  "request_id": "REQ-0002",
+  "task_id": "TASK-0021",
+  "type": "spec",
+  "version": 1,
+  "status": "draft",
+  "content_ref": ".agents/artifacts/ART-0021.md",
+  "summary": "10 quy tắc BR, 5 user story, tiêu chí AC1-AC13 kiểm bằng test tự động chạy gate.py với JSON PreToolUse giả lập (tests/test_gate.py). Rủi ro R1: agent không được sửa .claude/, CLAUDE.md, workflow.yaml nên việc áp bản vá cần designer đề xuất và người dùng quyết.",
+  "sources": [
+    ".agents/artifacts/ART-0020.md",
+    ".agents/decisions/DEC-0046.json",
+    ".agents/tasks/TASK-0021.json",
+    ".claude/hooks/gate.py:18-26",
+    ".claude/hooks/gate.py:65-79",
+    ".claude/hooks/gate.py:124-125",
+    ".claude/hooks/gate.py:132-161",
+    ".claude/hooks/gate.py:184-194"
+  ],
+  "created_by": "analyst"
+}
