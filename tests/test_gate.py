@@ -1,4 +1,5 @@
-"""Kiểm thử gate.py (REQ-0002). Chạy gate qua subprocess với JSON PreToolUse giả lập.
+"""Kiểm thử gate.py (REQ-0002; mở rộng REQ-0004: allowlist npm/pnpm cố định, .npmrc, .gitignore).
+Chạy gate qua subprocess với JSON PreToolUse giả lập.
 
 - GATE_PATH (env) chọn bản gate cần kiểm; mặc định: ../.claude/hooks/gate.py cạnh thư mục tests/
   (khi đã áp vào dự án thì chính là .claude/hooks/gate.py).
@@ -577,3 +578,149 @@ def test_fail_closed_ngoai_le_noi_bo(proj):
 
 def test_tool_khac_khong_bi_chan(proj):
     assert decision(run(proj, "Read", {"file_path": "x"})) == (False, "")
+
+
+# ================================================================ REQ-0004
+# ---------------------------------------------------------------- npm/pnpm: allowlist cố định
+PKG_OK = ["pnpm test", "pnpm lint", "pnpm typecheck", "pnpm build",
+          "npm test", "npm run lint", "npm run typecheck", "npm run build", "npm run build:web"]
+
+
+@pytest.mark.parametrize("agent", [None, "reviewer"])
+@pytest.mark.parametrize("cmd", PKG_OK)
+def test_pkg_lenh_co_dinh_cho_qua(proj, cmd, agent):
+    assert bash(proj, cmd, agent) == (False, ""), cmd
+
+
+def test_pkg_cho_qua_voi_redirect_dev_null(proj):
+    assert bash(proj, "pnpm test 2>&1") == (False, "")
+    assert bash(proj, "npm test >/dev/null") == (False, "")
+
+
+@pytest.mark.parametrize("cmd", [
+    # đối số thêm / viết tắt / tên script khác
+    "pnpm test -- x", "npm test -- --x", "pnpm test --filter a", "pnpm test -r", "pnpm -r test",
+    "pnpm --filter a test", "pnpm -w test", "npm test -w a", "npm test --workspaces",
+    "npm run build:web -w a", "npm run lint --prefix x", "npm --prefix x test",
+    "npm t", "npm tst", "npm run dev", "npm run start", "npm run test", "pnpm run test", "pnpm run lint",
+    "pnpm build:web", "pnpm dev", "pnpm start", "pnpm", "npm", "npm run", "npm run build:web x",
+    "pnpm test x", "npm test x",
+    # lệnh khác họ npm
+    "npx x", "npx pnpm test", "node x.js", "yarn test", "corepack enable", "corepack pnpm test",
+    # cài đặt / thực thi gói
+    "pnpm install", "pnpm i", "pnpm add x", "pnpm dlx x", "pnpm exec x", "pnpm x x", "pnpm rebuild",
+    "npm install", "npm i", "npm ci", "npm exec x", "npm x x", "npm install-test", "npm rebuild",
+    # đường dẫn, biến môi trường đầu lệnh, lệnh bọc
+    "./node_modules/.bin/pnpm test", "/usr/bin/npm test", "FOO=1 npm test",
+    "NPM_CONFIG_SCRIPT_SHELL=x pnpm test", "env npm test", "env FOO=1 pnpm test", "sudo npm test",
+    "time npm test", "timeout 5 npm test", "xargs npm test", "bash -c 'npm test'",
+])
+def test_pkg_lach_bi_chan(proj, cmd):
+    assert bash(proj, cmd)[0], cmd
+
+
+@pytest.mark.parametrize("cmd", [
+    "npm test; ls", "pnpm test; ls", "npm test && ls", "npm test || ls", "ls && npm test", "ls; pnpm test",
+    "npm test | cat", "pnpm test | sh", "npm test & ", "npm test\nls", "pnpm test\nrm -rf x",
+    "npm test\nnpm test", "npm test; npm test", "pnpm test && curl http://x",
+    "pnpm test $(ls)", "pnpm test `ls`", "pnpm test $HOME", "pnpm test ${IFS}x", "echo $(npm test)",
+    "pnpm test > out.txt", "pnpm test >> CLAUDE.md", "pnpm test < CLAUDE.md", "npm test <(ls)",
+    "pnpm test \\\nx",
+])
+def test_pkg_ghep_lenh_bi_chan(proj, cmd):
+    assert bash(proj, cmd)[0], cmd
+
+
+@pytest.mark.parametrize("agent", ["executor", "analyst", "designer", "planner", "guard", "reporter", "intake"])
+def test_pkg_chi_dieu_phoi_va_reviewer(proj, agent):
+    assert bash(proj, "pnpm test", agent)[0]
+    assert bash(proj, "npm test", agent)[0]
+
+
+def test_pkg_thieu_description_bi_chan(proj):
+    assert bash(proj, "pnpm test", desc=None)[0]
+
+
+def test_pkg_deny_co_ly_do_tieng_viet(proj):
+    denied, why = bash(proj, "npx x")
+    assert denied and any(ord(c) > 127 for c in why)
+
+
+# ---------------------------------------------------------------- npm/pnpm: .npmrc
+@pytest.mark.parametrize("cmd", PKG_OK)
+def test_pkg_npmrc_goc_bi_chan(proj, cmd):
+    (proj / ".npmrc").write_text("script-shell=/bin/sh\n", encoding="utf-8")
+    assert bash(proj, cmd)[0], cmd
+    assert bash(proj, cmd, "reviewer")[0], cmd
+
+
+@pytest.mark.parametrize("sub", ["apps/web", "packages/db"])
+def test_pkg_npmrc_workspace_bi_chan(proj, sub):
+    (proj / sub).mkdir(parents=True)
+    (proj / sub / ".npmrc").write_text("x=1\n", encoding="utf-8")
+    assert bash(proj, "pnpm test")[0]
+    assert bash(proj, "npm run build:web")[0]
+
+
+def test_pkg_npmrc_thu_muc_dang_chay_bi_chan(proj):
+    sub = proj / "apps" / "web"
+    sub.mkdir(parents=True)
+    (sub / ".npmrc").write_text("x=1\n", encoding="utf-8")
+    data = {"tool_name": "Bash", "cwd": str(sub),
+            "tool_input": {"command": "npm test", "description": DESC}}
+    assert decision(run_raw(proj, json.dumps(data)))[0]
+
+
+def test_pkg_npmrc_trong_node_modules_khong_chan(proj):
+    d = proj / "node_modules" / "x"
+    d.mkdir(parents=True)
+    (d / ".npmrc").write_text("x=1\n", encoding="utf-8")
+    assert bash(proj, "pnpm test") == (False, "")
+
+
+def test_pkg_npmrc_khong_anh_huong_lenh_khac(proj):
+    (proj / ".npmrc").write_text("x=1\n", encoding="utf-8")
+    assert bash(proj, "git status") == (False, "")
+    assert bash(proj, "python3 -m pytest -q tests") == (False, "")
+
+
+# ---------------------------------------------------------------- .gitignore: executor không ghi ở gốc repo
+def test_gitignore_goc_executor_che_do_branch_bi_chan(proj):
+    setup_executor(proj)
+    denied, why = write(proj, ".gitignore", "executor")
+    assert denied and ".gitignore" in why
+
+
+def test_gitignore_goc_executor_che_do_nhap_bi_chan(proj):
+    setup_executor(proj, branch=False)
+    assert write(proj, ".gitignore", "executor")[0]
+
+
+def test_gitignore_trong_drafts_theo_che_do_nhap(proj):
+    setup_executor(proj, branch=False)
+    assert write(proj, f"drafts/{REQ}/multi-agent/.gitignore", "executor") == (False, "")
+    assert write(proj, f"drafts/{REQ}/game-hub/.gitignore", "executor") == (False, "")
+    assert write(proj, "sub/.gitignore", "executor")[0]  # ngoài drafts/: chế độ nháp cấm
+
+
+def test_gitignore_trong_drafts_theo_che_do_branch(proj):
+    setup_executor(proj)
+    assert write(proj, f"drafts/{REQ}/x/.gitignore", "executor") == (False, "")
+    assert write(proj, "src/.gitignore", "executor") == (False, "")  # không phải gốc repo
+
+
+def test_gitignore_goc_cac_cach_viet_van_bi_chan(proj):
+    setup_executor(proj)
+    for path in ("./.gitignore", "src/../.gitignore"):
+        assert write(proj, path, "executor")[0], path
+
+
+def test_gitignore_goc_agent_khac_bi_chan(proj):
+    for agent in (None, "designer", "reviewer", "analyst"):
+        assert write(proj, ".gitignore", agent)[0], agent
+
+
+def test_gitignore_executor_van_ghi_duoc_code_khac(proj):
+    setup_executor(proj)
+    assert write(proj, "src/x.py", "executor") == (False, "")
+    assert write(proj, ".gitignore.bak", "executor") == (False, "")

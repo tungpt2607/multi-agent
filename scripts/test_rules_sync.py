@@ -1,6 +1,7 @@
 """Test rules_sync.py trên thư mục tạm (không đụng repo thật).
 
 Chạy: python3 -m unittest test_rules_sync -v  (trong thư mục scripts/)
+hoặc: python3 -m pytest scripts/test_rules_sync.py -q
 """
 import contextlib
 import io
@@ -14,8 +15,9 @@ from unittest import mock
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import rules_sync  # noqa: E402
 
-MANIFEST = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                        "rules_manifest.json")
+HERE = os.path.dirname(os.path.abspath(__file__))
+MANIFEST = os.path.join(HERE, "rules_manifest.json")
+REAL_CLAUDE = os.path.join(HERE, "..", "CLAUDE.md")
 EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
 
 WORKFLOW = "stages:\n  - name: execution\n    mode: %s\n    x: 1\n"
@@ -240,6 +242,69 @@ class PathGuardTests(unittest.TestCase):
             os.symlink(os.path.join(d, "real"), os.path.join(d, "link"))
             with self.assertRaises(rules_sync.SyncError):
                 rules_sync.full_path(d, ["link", "f.json"])
+
+
+# ---------- REQ-0004 (1C): khối marker bao toàn bộ luật trong CLAUDE.md thật ----------
+
+class RealClaudeMdBlockTests(unittest.TestCase):
+    """Kiểm CLAUDE.md thật (../CLAUDE.md cạnh scripts/) theo thiết kế 1C."""
+
+    HEADINGS = ("## Nguyên tắc bất biến", "## Dữ liệu (`.agents/`)", "## Khi chạy lệnh",
+                "## Vòng điều phối", "## Minh bạch agent", "### Xin phép trước mỗi bước",
+                "## Bước Thực thi", "## Kiểm tra không đạt", "## Tiết kiệm token",
+                "## Khi người dùng hỏi tiến độ")
+
+    def setUp(self):
+        if not os.path.isfile(REAL_CLAUDE):
+            self.skipTest("không có CLAUDE.md cạnh scripts/")
+        with open(REAL_CLAUDE, encoding="utf-8", newline="") as f:
+            self.text = f.read()
+        self.lines = self.text.splitlines(True)
+        self.b, self.e = rules_sync.find_block(self.lines, "minh-bach-agent")
+
+    def test_each_marker_exactly_once(self):
+        self.assertEqual(self.text.count("rules-sync:begin minh-bach-agent"), 1)
+        self.assertEqual(self.text.count("rules-sync:end minh-bach-agent"), 1)
+
+    def test_begin_right_after_title_and_intro(self):
+        head = [l.strip() for l in self.lines[:self.b] if l.strip()]
+        self.assertEqual(len(head), 2, head)
+        self.assertTrue(head[0].startswith("# Điều phối (Orchestrator)"))
+
+    def test_end_is_last_nonblank_line(self):
+        tail = [l for l in self.lines[self.e + 1:] if l.strip()]
+        self.assertEqual(tail, [])
+
+    def test_block_covers_all_rule_sections(self):
+        block = rules_sync.normalize({"kind": "markers", "marker": "minh-bach-agent"}, self.text)
+        for h in self.HEADINGS:
+            self.assertIn(h, block, h)
+        # luật phiếu push/merge/MCP nằm trong khối
+        self.assertIn("mỗi phiếu chỉ dùng một lần", block)
+        self.assertIn("merge vào `main` cần phiếu riêng", block)
+
+    def test_no_heading_outside_block(self):
+        outside = "".join(self.lines[:self.b] + self.lines[self.e + 1:])
+        self.assertNotIn("\n## ", "\n" + outside)
+
+    def test_manifest_points_to_marker(self):
+        entries = rules_sync.load_manifest(MANIFEST)
+        mk = [x for x in entries if x["kind"] == "markers"]
+        self.assertEqual([(x["path"], x["marker"]) for x in mk], [("CLAUDE.md", "minh-bach-agent")])
+
+    def test_check_real_claude_matches_itself_and_detects_drift(self):
+        with tempfile.TemporaryDirectory() as d:
+            src, dst = os.path.join(d, "s"), os.path.join(d, "t")
+            for root in (src, dst):
+                write(root, "CLAUDE.md", self.text)
+                write(root, ".agents/workflow.yaml", WORKFLOW % "branch")
+                write(root, ".agents/schemas/a.json", "{}\n")
+            args = ["check", "--source", src, "--target", dst, "--manifest", MANIFEST]
+            with contextlib.redirect_stdout(io.StringIO()):
+                self.assertEqual(rules_sync.main(args), 0)
+                # sửa một luật trong "Bước Thực thi" ở đích -> phải DRIFT
+                write(dst, "CLAUDE.md", self.text.replace("merge vào `main` cần phiếu riêng", "merge tự do"))
+                self.assertEqual(rules_sync.main(args), 1)
 
 
 if __name__ == "__main__":
